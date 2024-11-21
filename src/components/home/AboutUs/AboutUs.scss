@@ -1,0 +1,107 @@
+.aboutus{
+    padding: 100px 0;
+    position: relative;
+    background-color: #f4f9f9;
+    overflow: hidden;
+    @media (max-width: 1300px){
+        padding: 70px 0;
+    }
+    @media screen and (max-width:992px){
+        padding: 50px 0;
+       }
+    .dreamImg{
+        width: auto;
+        position: absolute;
+        left: 0;
+        top: 52%;
+        transform: translate(0, -50%);
+        @media (max-width: 1300px){
+            width: 500px;
+        }
+        @media (max-width: 992px){
+            width: 100%;
+            position: relative;
+            margin-bottom: 30px;
+            top: unset;
+            transform: none;
+        }
+    }
+    .content{
+        h2{
+            font-size: 48px;
+            color: #051312;
+            margin-bottom: 30px;
+            text-transform: capitalize;
+            span{
+                color: #2B9F97;
+            }
+            @media screen and (max-width:1200px){
+                font-size: 38px;
+                line-height: 55px;
+              }
+        }
+        p{
+            font-size: 16px;
+            color: rgba(5, 19, 18, 1);
+            margin: 30px 0;
+            line-height: 30px;
+            margin: 0 0 25px;
+        }
+        ul{
+            padding: 0; 
+            margin: 0 0 35px;
+            list-style: none;
+            li{
+                font-size: 16px;
+                font-weight: 700;
+                color: #051312;
+                margin-bottom: 15px;
+                img{
+                    margin-right: 10px;
+                    width: 30px;
+                    height: 30px;
+                }
+            }
+        }
+
+        .curve{
+            position: relative;
+            .curveArrow{
+                position: absolute;
+                left: -25%;
+                top: -50%;
+                transform: translate(0, -50%);
+                @media (max-width: 992px){
+                   display: none;
+            }
+            }
+            .started{
+                font-size: 16px;
+                font-weight: 500;
+                background: linear-gradient(285deg, #0B5B4C 0, #2B9F97 95%);
+                color: white;
+                margin-right: 20px;
+                width: 176px;
+                height: 53px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 100px;
+                transition: all 0.4s;
+                .arrow{
+                    margin-left: 10px;
+                    width: 20px;
+                    transition: all 0.4s;
+                }
+                &:hover{
+                    background: linear-gradient(90deg, #0B5B4C 0, #2B9F97 95%);
+                    transition: all 0.4s;
+                    .arrow{
+                        margin-left: 20px;
+                        transform: translate(0, 0);
+                    }
+                }
+            }
+        }
+    }
+}

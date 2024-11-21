@@ -1,0 +1,271 @@
+.product-title {
+  white-space: nowrap;        /* Keep text in one line */
+  overflow: hidden;           /* Hide any overflow */
+  text-overflow: ellipsis;    /* Add the ellipsis (...) */
+  width: 100%;                /* Ensure it takes full width of container */
+  display: inline-block;      /* Make sure ellipsis works by ensuring block display */
+  cursor: pointer;      
+       /* Change cursor to indicate hoverability */
+}
+
+.product-title:hover {
+  color: #007bff;   
+  
+  /* Optional: Change the color on hover */
+}
+
+
+.products {
+    background: linear-gradient(180deg, #F6F6F6 0, #fff 95%);
+    padding: 70px 0;
+
+    @media screen and (max-width: 992px) {
+        padding: 50px 0;
+    }
+
+    .title {
+        text-align: center;
+        margin-bottom: 60px;
+
+        h2 {
+            font-size: 48px;
+            color: #000;
+            margin-bottom: 15px;
+
+            @media screen and (max-width: 1200px) {
+                font-size: 38px;
+                line-height: 55px;
+            }
+        }
+
+        p {
+            font-size: 20px;
+            color: #000000a2;
+            margin: 0 0 25px;
+            margin: 0 auto 35px;
+        }
+    }
+
+    .alert-box {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #2B9F97;
+        color: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+    }
+    
+    .alert-content {
+        display: flex;
+        align-items: center;
+    }
+    
+    .close {
+        cursor: pointer;
+        margin-left: auto;
+        font-size: 20px;
+    }
+    
+    .close:hover {
+        color: #fff;
+    }    
+
+    .tab-buttons {
+        margin-bottom: 30px;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        overflow-x: auto; /* Make it horizontally scrollable */
+        -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+
+        &::-webkit-scrollbar {
+            display: none; /* Hide the scrollbar */
+        }
+
+        @media screen and (max-width: 768px) {
+            gap: 10px;
+        }
+
+        button {
+            flex-shrink: 0; /* Prevent the buttons from shrinking */
+            color: #7f8685;
+            background-color: transparent;
+            border: 0;
+            border-bottom: 2px solid transparent;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+
+            &:hover {
+                color: #7f8685;
+                border-color: #2B9F97;
+            }
+
+            &:focus {
+                outline: none;
+                color: #7f8685;
+                border-color: #2B9F97;
+            }
+
+            &.active {
+                color: #000;
+                border-color: #2B9F97;
+            }
+        }
+    }
+
+    .card {
+        background: #fff;
+        border-radius: 45px;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #0000001f;
+        // height: calc(100% - -50px);
+        height: 410px;
+
+       
+       
+
+        .head {
+            position: relative;
+            margin-bottom: 15px;
+
+            .blogImg {
+                width: 100%;
+                height: 250px;
+                border-radius: 45px;
+                object-fit: cover;
+            }
+
+            .date {
+                position: absolute;
+                top: 90%;
+                left: 20px;
+                width: 100px;
+                text-align: center;
+                transform: translate(0, -90%);
+                background-color: #0000009e;
+                padding: 10px;
+                border-radius: 100px;
+
+                p {
+                    color: #ffffffbe;
+                    font-size: 11px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin: 0;
+
+                    span {
+                        font-size: 16px;
+                        font-weight: 600;
+                        color: #fff;
+                    }
+                }
+            }
+        }
+
+        .content {
+            padding: 0 10px 10px;
+
+            h3 {
+                font-size: 24px;
+                color: #051312;
+                margin-bottom: 10px;
+            }
+
+            p {
+                font-size: 15px;
+                color: #05131272;
+                margin-bottom: 20px;
+            }
+
+            .readMore {
+                // position: absolute;
+                // bottom: 35px;
+                // left: 25px;
+               
+                font-size: 16px;
+                font-weight: 500;
+                background: #000;
+                color: white;
+                width: 84%;
+                height: 53px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 100px;
+                // transition: all 0.4s;
+            
+                &:hover {
+                    background-color: #051312c4;
+                }
+            
+                &:active {
+                    background-color: yellowgreen;
+                }
+            
+                &.selected {
+                    background-color: #7f8685; /* Color when selected */
+                }
+            }
+            
+            
+        }
+    }
+
+    .load-more-select {
+        text-align: center; /* Center the buttons horizontally */
+        margin: 20px 0; /* Add margin around the buttons */
+    }
+    
+    .load-more-select button {
+        // background-color: #0d4c17; /* White background color */
+        border: 2px solid black; /* Dark green border */
+        color: black; /* Dark green text color #2b9f97*/
+        padding: 10px 20px; /* Padding inside the button */
+        font-size: 16px; /* Font size */
+        border-radius: 5px; /* Rounded corners */
+        cursor: pointer; /* Change cursor to pointer on hover */
+        transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease; /* Smooth transition effects */
+        margin: 0 10px; /* Add margin between buttons */
+        background-color:#fff;
+    }
+    
+    .load-more-select button:hover {
+        background-color: #1c7a74ce; /* Dark green background on hover */
+        color: #ffffff; /* White text on hover */
+    }
+    
+    .load-more-select button:disabled {
+        background-color: #444444; /* Dark gray background for disabled state */
+        border-color: #666666; /* Slightly lighter gray border */
+        color: #cccccc; /* Light gray text */
+        cursor: not-allowed; /* Change cursor to indicate disabled state */
+    }
+    
+    .generate-btn {
+        background-color: #2B9F97;
+        color: white;
+        font-size: 16px;
+        font-weight: 500;
+        padding: 11px 26px;
+        border: none;
+        border-radius: 100px;
+        cursor: pointer;
+        transition: background-color 0.4s;
+
+        &:hover {
+            background-color: #228b7d;
+        }
+
+        &:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+    }
+}

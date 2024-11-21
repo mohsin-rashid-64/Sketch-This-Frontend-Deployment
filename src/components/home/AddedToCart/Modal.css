@@ -1,0 +1,145 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  /* background-color: aliceblue; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content-2 {
+  background: white;
+  /* background-color: aliceblue; */
+  padding: 20px;
+  border-radius: 8px;
+  position: relative;
+  width: 80%;
+  max-width: 800px;
+  overflow-y: auto;
+  max-height: 70vh;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 2.2rem;
+  cursor: pointer;
+}
+
+.my-cart {
+  padding: 10px;
+  /* background-color: azure; */
+}
+
+.my-cart h2 {
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.shopping-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #ddd;
+  /* background-color: azure; */
+  padding: 10px 0;
+}
+
+.item-details {
+  display: flex;
+  align-items: center;
+  flex: 2;
+}
+
+.item-image {
+  width: 170px;
+  height: 170px;
+  object-fit: cover;
+  margin-right: 10px;
+}
+
+.item-info h3 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.item-info p {
+  margin: 0;
+  color: gray;
+}
+
+.item-actions {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  justify-content: space-between;
+}
+
+.item-price {
+  margin-right: 60px;
+}
+
+.item-price p {
+  margin-left: 60px;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.delete-button {
+  background: none;
+  border: none;
+  /* background-color: red; */
+  font-size: 1.0rem;
+  color:red;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.delete-button img {
+  width: 23px; /* Adjust the size of the icon as needed */
+  height: 23px;
+}
+
+
+.generated-image {
+  max-width: 90%;
+  max-height: 50vh; /* Adjust the max-height as needed */
+  object-fit: contain;
+  display: block;
+  margin: 0 auto; /* Center the image */
+}
+
+.generate-btn {
+  text-align: center; /* Center the button horizontally */
+  margin: 20px 0; /* Add margin around the button */
+}
+
+.generate-btn button {
+  background-color: #2B9F97; /* Blue background color */
+  border: none; /* Remove default border */
+  color: white; /* White text color */
+  padding: 10px 20px; /* Padding inside the button */
+  font-size: 16px; /* Font size */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Change cursor to pointer on hover */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transition effects */
+}
+
+.generate-btn button:hover {
+  background-color: #1d5c58; /* Darker blue on hover */
+}
+
+.generate-btn button:disabled {
+  background-color: #cccccc; /* Light gray background for disabled state */
+  cursor: not-allowed; /* Change cursor to indicate disabled state */
+}

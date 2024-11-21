@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "img": "/images/choose1.svg",
+        "title": "Tools",
+        "desc": "Search and save all the furniture you will need for your home in one place. Don't know where to start? No problem click get started and we will guide you through all the items you will need to complete each main space. "
+    },
+    {
+        "id": 2,
+        "img": "/images/choose2.svg",
+        "title": "Community",
+        "desc": "Join our community and browse through many mood boards and ideas. Lets together create a space for all interior design enthusiasts. "
+    },
+    {
+        "id": 3,
+        "img": "/images/choose3.svg",
+        "title": "Inspiration",
+        "desc": "Save as many mood boards and lists as you would like. Follow other members design or our blogs and get inspired."
+    },
+    {
+        "id": 4,
+        "img": "/images/choose4.svg",
+        "title": "Guidance",
+        "desc": "Still need further help with your space? No problem book a live 30min consultation with a designer to assist you "
+    }
+]

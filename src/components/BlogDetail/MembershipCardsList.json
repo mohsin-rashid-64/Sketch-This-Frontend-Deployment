@@ -1,0 +1,47 @@
+[
+    {
+        "id": 1,
+        "title": "Design Assistance",
+        "price": "$15",
+        "description": "Monthly design feedback",
+        "buttonText": "Book Here",
+        "features": [
+            "Browse our items",
+            "Save designs",
+            "Share and follow designs",
+            "Save Item lists",
+            "1 monthly design board review"
+        ]
+    },
+    {
+        "id": 2,
+        "title": "Design Review",
+        "price": "$50",
+        "description": "Monthly design consultation",
+        "buttonText": "Book Here",
+        "features": [
+            "1 free monthly live consultation",
+            "1 monthly design board review",
+            "Spatial guidance",
+            "Design assistance",
+            "Q&A",
+            "Have your personal designer"
+        ]
+    },
+    {
+        "id": 3,
+        "popular":"Most Popular",
+        "title": "Design Creation",
+        "price": "..",
+        "description": "Price upon request. A designer will create a design  ",
+        "buttonText": " Book Here",
+        "features": [
+            "Live consultation",
+            "1 or more design board creations",
+            "Spatial plan",
+            "Shopping List",
+            "Design tailored to you",
+            "and much more..."
+        ]
+    }
+]

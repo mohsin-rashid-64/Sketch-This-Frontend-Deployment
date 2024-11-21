@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "img": "/images/Blog1.svg",
+        "alt": "Quality Furniture",
+        "category": "Furniture",
+        "time": "5",
+        "title": "Whats Your Living Room Furniture Style?",
+        "desc": "A grid system is a design tool used to arrange content on a webpage.",
+        "user": "/images/blogUsr.svg",
+        "name": "John Doe",
+        "date": "19 Jun, 2023"
+    },
+    {
+        "id": 2,
+        "img": "/images/Blog2.svg",
+        "alt": "Quality Furniture",
+        "category": "Furniture",
+        "time": "5",
+        "title": "Whats Your Living Room Furniture Style?",
+        "desc": "A grid system is a design tool used to arrange content on a webpage.",
+        "user": "/images/blogUsr.svg",
+        "name": "John Doe",
+        "date": "19 Jun, 2023"
+    },
+    {
+        "id": 3,
+        "img": "/images/Blog3.svg",
+        "alt": "Quality Furniture",
+        "category": "Furniture",
+        "time": "5",
+        "title": "Whats Your Living Room Furniture Style?",
+        "desc": "A grid system is a design tool used to arrange content on a webpage.",
+        "user": "/images/blogUsr.svg",
+        "name": "John Doe",
+        "date": "19 Jun, 2023"
+    }
+]

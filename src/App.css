@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=DM+Serif+Display&display=swap');
+
+* {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 80px 0 0;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: none;
+  overflow-x: clip;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: "DM Sans", sans-serif;
+  background-color: #f9f9f9;
+  color: black;
+}
+
+
+/* @media (min-width: 2560px){ 
+  html { 
+    zoom: 150%;
+    -ms-zoom: 1.5;
+    -webkit-zoom: 1.5;
+    -moz-transform:  scale(1.5,1.5);        
+    transform-origin: center top ;
+  } 
+  body { 
+    zoom: 1.5;        
+  }
+} */
+select:focus{
+  outline: none !important;
+  box-shadow: none !important;
+}
+a{
+  text-decoration: none !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "DM Serif Display", serif;
+}
+.modal .modal-header{
+  border-bottom: none;
+  justify-content: space-between;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  padding: 40px 30px 0;
+}
+.modal .modal-body{
+  padding: 40px;
+}
+.modal .modal-title{
+  width: 100%;
+}
+.modal .modal-content{
+  border-radius: 20px;
+}
+.modal .modal-header .modal-title h4{
+  font-size: 27px;
+  font-weight: 500;
+  margin: 0;
+}
+.modal .modal-header .modal-title img{
+  width: 26px;
+  cursor: pointer;
+
+}
+.modal .modal-header .modal-title .block{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.modal-header .btn-close{
+  display: none;
+}
+.modal .form-group{
+  margin-bottom: 15px;
+  position: relative;
+}
+  .modal .form-group  label{
+      font-size: 18px;
+      margin-bottom: 5px;
+      font-family: "DM Serif Display", serif;
+  }
+  .modal .form-group  input{
+      width: 100%;
+      padding: 15px 15px;
+      font-size: 14px;
+      border: 1px solid #dddd;
+      border-radius: 5px;
+      outline: 0;
+  }
+  .modal .form-group textarea{
+      width: 100%;
+      padding: 15px 15px;
+      font-size: 14px;
+      border: 1px solid #dddd;
+      border-radius: 5px;
+      outline: 0;
+  }
+  .modal button{
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #1C7A73;
+    color: #fff;
+    border: 2px solid #1C7A73;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 100%;
+    font-weight: 600;
+  }
+    .modal button:hover{
+        background-color: #fff;
+        color: #1C7A73;
+        border: 2px solid #1C7A73;
+    }

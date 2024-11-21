@@ -1,0 +1,109 @@
+.banner{
+    background-color: #f4f9f9;
+    padding: 70px 0;
+    position: relative;
+    overflow: hidden;
+    @media screen and (max-width:992px){
+       padding: 50px 0;
+      }
+    .banner_content{
+        .subline{
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 20px;
+            color: rgba(5, 19, 18, 0.5);
+            position: relative;
+            margin-left: 40px;
+            span{
+                color: #2B9F97;
+                transition: all 0.3s;
+                font-weight: bold;
+            }
+            &::after{
+                content: "";
+                position: absolute;
+                top:10px;
+                left: -40px;
+                width: 24px;
+                height: 2px;
+                border-radius: 100px;
+                background-color: #2B9F97;
+            }
+        }
+        h1{
+            font-size: 45px;
+            color: #051312;
+            margin-bottom: 20px;
+            line-height: 80px;
+            text-transform: capitalize;
+            span{
+                color: #2B9F97;
+            }
+            img{
+                box-shadow: 0 7px 16px -2px rgb(0 0 0 / 22%);
+                border-radius: 100px;
+                width: 120px;
+                height: 56px;
+            }
+            @media screen and (max-width:1200px){
+                font-size: 38px;
+                line-height: 55px;
+              }
+        }
+        .para{
+            font-size: 16px;
+            color: #051312;
+            margin: 30px 0;
+            line-height: 30px;
+            max-width: 445px;
+        }
+        .date{
+            display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+        p{
+            img{
+                width: 40px;
+                height: 40px;
+                margin-right: 10px;
+                border-radius: 100px;
+                object-fit: cover;
+            }
+            color: #051312;
+            font-size: 18px;
+            margin: 0;
+            position: relative;
+            display: flex;
+            align-items: center;
+            font-weight: 600;
+            &:last-child{
+                &::before{
+                    content: '';
+                    width: 6px;
+                height: 6px;
+                border-radius: 100px;
+                background: #051312;
+                display: block;
+                margin: 0 10px;
+                }
+            }
+        }
+       
+        }
+    }
+    .sliderP{
+        position: absolute;
+        right: 0;
+        padding: 0;
+        top: 50%;
+        transform: translate(0, -50%);
+        @media screen and (max-width: 992px){
+            position: relative;
+            transform: none;
+            margin-top: 30px;
+            top: unset;
+            right: unset;
+            padding-left: 10px;
+          }
+    }
+}

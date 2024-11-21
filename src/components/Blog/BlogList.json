@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "img": "/images/Blog1.svg",
+        "alt": "Quality Furniture",
+        "category": "Design",
+        "time": "5",
+        "title": "Whats Your Living Room Furniture Style??",
+        "desc": "A grid system is a design tool used to arrange content on a webpage.",
+        "user": "/images/blogUsr.svg",
+        "name": "John Doe",
+        "date": "19 Jun, 2023"
+    },
+    {
+        "id": 2,
+        "img": "/images/Blog2.svg",
+        "alt": "Quality Furniture",
+        "category": "Management",
+        "time": "10",
+        "title": "Top 2024 Furniture Trends To Decorate Your Home",
+        "desc": "Like to know the secrets of transforming a 2-14 team into a 3x Super Bowl winning Dynasty?",
+        "user": "/images/blogUsr.svg",
+        "name": "Desirae Geidt",
+        "date": "19 Jun, 2023"
+    },
+    {
+        "id": 3,
+        "img": "/images/Blog3.svg",
+        "alt": "Quality Furniture",
+        "category": "Furniture",
+        "time": "8",
+        "title": "Functional Bedroom Furniture From Aspen",
+        "desc": "Discover a list of the most important business tools for designers to scale their brand in 2023 and beyond.",
+        "user": "/images/blogUsr.svg",
+        "name": "Carter Baptista",
+        "date": "19 Jun, 2023"
+    }
+]

@@ -1,0 +1,74 @@
+[
+    {
+        "id": 1,
+        "img": "/images/Blog1.svg",
+        "alt": "Quality Furniture",
+        "category": "Furniture",
+        "time": "5",
+        "title": "Commit To Healthier Living This Year",
+        "desc": "The rise of RESTful APIs has been met by a rise in tools for creating, testing, and managing.",
+        "user": "/images/blogUsr.svg",
+        "name": "Paityn Press",
+        "date": "19 Jun, 2023"
+    },
+    {
+        "id": 2,
+        "img": "/images/Blog2.svg",
+        "alt": "Quality Furniture",
+        "category": "Design",
+        "time": "8",
+        "title": "The Craftsmanship Behind Quality Furniture",
+        "desc": "How do you create compelling presentations that wow your colleagues and impress your manage...",
+        "user": "/images/blogUsr.svg",
+        "name": "Roger Botosh",
+        "date": "19 Jun, 2023"
+    },
+    {
+        "id": 3,
+        "img": "/images/Blog3.svg",
+        "alt": "Quality Furniture",
+        "category": "FurniCustomer Successture",
+        "time": "12",
+        "title": "Plan Your Living Room With A Mood Board",
+        "desc": "Starting a community doesn’t need to be complicated, but how do you get started?",
+        "user": "/images/blogUsr.svg",
+        "name": "Desirae Westervelt",
+        "date": "19 Jun, 2023"
+    },
+    {
+        "id": 4,
+        "img": "/images/Blog4.svg",
+        "alt": "Quality Furniture",
+        "category": "Design",
+        "time": "5",
+        "title": "5 Tips For Decorating A Small Space",
+        "desc": "Collaboration can make our teams stronger, and our individual designs better.",
+        "user": "/images/blogUsr.svg",
+        "name": "Giana Kenter",
+        "date": "19 Jun, 2023"
+    },
+    {
+        "id": 5,
+        "img": "/images/Blog5.svg",
+        "alt": "Quality Furniture",
+        "category": "Furniture",
+        "time": "5",
+        "title": "What To Take When You Downsize Your Home",
+        "desc": "JavaScript frameworks make development easy with extensive features and functionalities.",
+        "user": "/images/blogUsr.svg",
+        "name": "Jaylon Botosh",
+        "date": "19 Jun, 2023"
+    },
+    {
+        "id": 6,
+        "img": "/images/Blog6.svg",
+        "alt": "Quality Furniture",
+        "category": "Research",
+        "time": "12",
+        "title": "How To Warm Up Your Contemporary Home",
+        "desc": "Linear helps streamline software projects, sprints, tasks, and bug tracking. Here’s how to get...",
+        "user": "/images/blogUsr.svg",
+        "name": "Dulce Vetrovs",
+        "date": "19 Jun, 2023"
+    }
+]

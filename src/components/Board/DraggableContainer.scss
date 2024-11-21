@@ -1,0 +1,45 @@
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 50px;
+
+    .controls {
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 1rem;
+
+        label {
+            font-size: 14px;
+            input {
+                margin-left: 8px;
+                width: 60px;
+                padding: 4px;
+            }
+        }
+    }
+
+    .brown-container {
+        position: relative;
+        background-color: #c3a27d; // Brown color
+        border: 2px solid #666;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .draggable-component {
+            position: absolute;
+            background-color: #333;
+            color: white;
+            padding: 8px;
+            border-radius: 4px;
+            cursor: grab;
+            user-select: none;
+
+            &:active {
+                cursor: grabbing;
+            }
+        }
+    }
+}

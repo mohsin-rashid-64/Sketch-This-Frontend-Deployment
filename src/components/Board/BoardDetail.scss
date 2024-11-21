@@ -1,0 +1,260 @@
+
+.colorBlock {
+  width: 50px; /* Adjust width and height as needed */
+  height: 50px;
+  display: inline-block;
+  border: 1px solid #ccc; /* Optional: adds a border to the color block */
+}
+
+
+.imageContainer img {
+  max-width:130%;
+  max-height: 130%; 
+  height: auto;
+  display: block;
+}
+
+
+
+.boardDetails {
+  background: url(../../../public/images/StepBack.png);
+    padding: 90px;
+    // margin-top: 140px;
+
+    .title {
+      margin-bottom: 60px;
+      text-align: center;
+      
+
+      h2 {
+        font-size: 24px;
+        margin-bottom: 10px;
+      }
+
+      p {
+        font-size: 16px;
+        color: #333;
+      }
+
+      b {
+        color: #000; // Change to match the design
+      }
+    }
+    
+    
+    .container {
+      background: #ffffff; // Set the background color to white
+    padding-top: 55px ;
+    padding-bottom: 25px ;
+    padding-left: 45px ;
+    padding-right: 45px ;
+    // Padding inside the card
+    border-radius: 40px; // Adjust the radius as needed
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // Add a subtle shadow for card effect
+    // Optionally, you can set a max-width to control card width
+    max-width: 1100px;
+    // margin-top: 340px;
+
+    margin: 0 auto; // Center the card horizontally
+    // border:1px
+    border: 1px solid #0000001A;
+    
+      
+  
+      .innerDetails {
+        display: flex;
+        flex-wrap: wrap;
+  
+        .row {
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 20px;
+  
+          .col-lg-4 {
+            flex: 0 0 30%; // Adjust according to your layout
+          }
+  
+          .col-lg-8 {
+            flex: 0 0 65%; // Adjust according to your layout
+  
+            .details {
+              img {
+                max-width: 100%;
+                border-radius: 10px;
+                margin-bottom: 30px;
+
+              }
+  
+              h4 {
+                font-size: 20px;
+                // margin-top: 20px;
+              }
+  
+              p {
+                font-size: 14px;
+                color: #666;
+                line-height: 1.6;
+                margin-bottom: 10px;
+              }
+            }
+          }
+        }
+  
+        .texture
+         {
+          .card {
+            padding: 10px;
+            margin-bottom: 10px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  
+            p {
+              margin: 0;
+              font-size: 14px;
+              font-weight: bold;
+            }
+  
+            .block {
+              display: flex;
+              flex-wrap: wrap;
+  
+              .imgBlock {
+                width: 48%;
+                margin: 1%;
+                img {
+                  width: 100%;
+                  height: auto;
+                  border-radius: 4px;
+                }
+              }
+            }
+          }
+        }
+
+
+
+        
+        .colorPelete {
+          .block {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px; // Adjust the gap between items as needed
+            justify-content: space-between;
+        
+            .card {
+              flex: 1 1 calc(50% - 10px); // 50% width minus gap
+              padding: 10px;
+              background-color: #f9f9f9; // Light background color
+              border-radius: 20px;
+              box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+              box-sizing: border-box; // Include padding in width calculation
+        
+              .colorBlock {
+                width: 100%;
+                height: 100px; // Adjust the height as needed
+                border-radius: 20px;
+                margin-bottom: 10px; // Spacing between color block and text
+              }
+        
+              p {
+                margin: 0;
+                font-size: 14px;
+                font-weight: bold;
+                text-align: center; // Center text if needed
+              }
+            }
+          }
+        }
+        
+        .imageContainer {
+          background-color: white;
+          padding-top: 0px;
+          padding-bottom: 0px;
+          padding-left: 20px;
+          padding-right: 20px; 
+          border-radius: 8px; 
+          // box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+          display: flex; 
+          justify-content: center; 
+          align-items: center;
+          width: 180px; 
+          height: 180px; 
+          margin: 10px; 
+          text-align: center; 
+        }
+        .styledImage{
+          /* Styles for the styled image based on the style value */
+          max-width: 14%;
+          height: 14%;
+          margin-bottom: 20px;
+          // Other specific styles for the styled image
+        }
+  
+        .imageWrapper {
+          margin-bottom: 20px;
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          width: 100%;
+          background-color: #FFF; /* Change to your desired background color */
+          padding: 2px;
+          border-radius: 30px;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.139); /* Optional: Add shadow for better visual effect */
+          border: 1px solid #d1f4f250; /* Add border width and style */
+        }
+       
+        // Grid Management
+        .grid-container {
+          width: 100%;
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 10px;
+        }
+
+        .grid-column-one {
+          // width: 50%;
+          display: flex;
+          column-span: 1;
+        }
+
+        .grid-column-two {
+          // width: 50%;
+          display: flex;
+          column-span: 1;
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          grid-gap: 10px;
+        }
+  
+        // .imgBoard {
+        //   display: flex;
+        //   flex-wrap: wrap;
+        //   flex-grow: 1;
+        //   align-items: center;
+        //   align-content: center;
+        //   justify-content: center;
+
+          
+        
+        //   .block {
+        //     width: 20%; /* Adjust width to fit more images per row */
+        //     margin: 1%;
+            
+        //     span {
+        //       display: block;
+        //       margin-bottom: 5px;
+        //       font-weight: bold;
+        //     }
+        
+        //     img {
+        //       width: 80%; /* Adjust width to fill block */
+        //       height: 80%;
+        //       border-radius: 20px;
+        //     }
+        //   }
+        // }
+        
+      }
+    }
+  }
+  

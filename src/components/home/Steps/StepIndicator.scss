@@ -1,0 +1,131 @@
+// .step-indicator {
+//     display: flex;
+//     justify-content: center;
+//     margin-bottom: 20px;
+
+//     .stepInd {
+//         width: 30px;
+//         height: 30px;
+//         border-radius: 50%;
+//         background-color: #ccc;
+//         display: flex;
+//         align-items: center;
+//         justify-content: center;
+//         margin: 0 5px;
+//         font-weight: bold;
+//         color: #fff; // Default color for the text
+//     }
+
+//     .stepInd.selected {
+//         background-color: #2b9f97; // Selected step color
+//     }
+
+//     .stepInd.next {
+//         background-color: #000; // Color for the next step
+//     }
+// }
+
+
+
+
+
+
+
+
+
+
+// .step-indicator {
+//     display: flex;
+//     justify-content: center;
+//     align-items: center; // Ensure alignment of the line with the steps
+//     margin-bottom: 20px;
+
+//     .stepInd {
+//         width: 50px;
+//         height: 40px;
+//         border-radius: 40%;
+//         background-color: #ccc;
+//         display: flex;
+//         align-items: center;
+//         justify-content: center;
+//         margin: 0 30px; // Increase margin for more space between steps
+//         font-weight: bold;
+//         color: #fff; // Default color for the text
+//         position: relative; // Needed for positioning the line
+//     }
+
+//     .stepInd::after {
+//         content: '';
+//         position: absolute;
+//         top: 50%;
+//         left: 100%; // Align the start of the line to the end of the step
+//         width: 90px; // Length of the line
+//         height: 2px; // Line thickness
+//         background-color: #ccc; // Line color
+//         transform: translateY(-50%); // Center the line vertically
+//         z-index: -1; // Place the line behind the steps
+//     }
+
+//     .stepInd:last-child::after {
+//         content: none; // Remove the line after the last step
+//     }
+
+//     .stepInd.selected {
+//         background-color: #2b9f97; // Selected step color
+//     }
+
+//     .stepInd.next {
+//         background-color: #000; // Color for the next step
+//     }
+// }
+
+
+
+
+.step-indicator {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+
+    .stepInd {
+        width: 60px;
+        height: 40px;
+        border-radius: 45%;
+        background-color: #ccc;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 30px; // Adjust spacing between steps
+        font-weight: bold;
+        color: #fff; // Default color for the text
+        position: relative; // Needed for positioning the line
+
+        .line {
+            position: absolute;
+            top: 50%;
+            left: 100%; // Align the start of the line to the end of the step
+            width: 90px; // Length of the line
+            height: 2px; // Line thickness
+            background-color: #ccc; // Default line color
+            transform: translateY(-50%); // Center the line vertically
+            z-index: -1; // Place the line behind the steps
+        }
+
+        .line.active {
+            background-color: #000; // Color for the line after the current step
+        }
+
+        .line.default {
+            background-color: #ccc; // Default color for the lines before the current step
+        }
+    }
+
+    .stepInd:last-child .line {
+        content: none; // Remove the line after the last step
+    }
+
+    .stepInd.selected {
+        background-color: #2b9f97; // Selected step color
+    }
+}
