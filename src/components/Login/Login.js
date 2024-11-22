@@ -153,14 +153,14 @@ function Login({ show, handleClose }) {
                   <img src="/images/wg.svg" alt="google" />
                   Google
                 </button>
-                <button onClick={() => handleClick(GoogleProvider)} disabled={loading}>
+                {/* <button onClick={() => handleClick(GoogleProvider)} disabled={loading}>
                   <img src="/images/wf.svg" alt="google" />
                   Google
                 </button>
                 <button onClick={() => handleClick(GoogleProvider)} disabled={loading}>
                   <img src="/images/wa.svg" alt="google" />
-                  Google
-                </button>
+                  Google */}
+                {/* </button> */}
               </div>
               <div className="register">
               <p>
