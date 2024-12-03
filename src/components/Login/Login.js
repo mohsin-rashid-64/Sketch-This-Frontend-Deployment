@@ -8,7 +8,7 @@ import { signInWithPopup } from "firebase/auth";
 import { auth, GoogleProvider, signInWithEmail } from '../../firebase/config';
 import { AuthContext } from "../../Context/AuthContext.js";
 
-function Login({ show, handleClose }) {
+function Login({ show, handleClose, openRegisterModal }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [formErrors, setFormErrors] = useState({});
@@ -153,18 +153,21 @@ function Login({ show, handleClose }) {
                   <img src="/images/wg.svg" alt="google" />
                   Google
                 </button>
-                {/* <button onClick={() => handleClick(GoogleProvider)} disabled={loading}>
+                <button onClick={() => handleClick(GoogleProvider)} disabled={loading}>
                   <img src="/images/wf.svg" alt="google" />
-                  Google
+                  Facebook
                 </button>
                 <button onClick={() => handleClick(GoogleProvider)} disabled={loading}>
                   <img src="/images/wa.svg" alt="google" />
-                  Google */}
-                {/* </button> */}
+                  Apple
+                </button>
               </div>
               <div className="register">
               <p>
-                Don't have an account? <Link to="/">Register</Link>
+                Don't have an account? <span className='login-link-x' onClick={()=>{
+                  handleClose(true)
+                  openRegisterModal(true)
+                }}>Register</span>
               </p>
             </div>
             </form>

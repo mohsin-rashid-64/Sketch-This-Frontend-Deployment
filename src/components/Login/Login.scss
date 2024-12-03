@@ -1,3 +1,43 @@
+.asterix{
+    color: red;
+    font-size: 12px;
+}
+.error-text{
+    color:red;
+    font-size: 12.5px;
+    margin-top: 5px;
+}
+
+
+.nav-link {
+    transition: all 0.3s !important;
+    position: relative;
+    font-family: "DM Sans", sans-serif;
+    font-size: 16px !important;
+    font-style: normal;
+    line-height: normal;
+    font-weight: 400 !important;
+    color: #051312 !important;
+    padding: 5px 0 !important;
+    opacity: 0.5;
+  }
+
+
+.login-link-x {
+    color: #4f8a8b; /* Green color */
+    text-decoration: underline; /* Underline */
+    cursor: pointer; /* Make it clickable */
+    font-weight: 500; /* Optional: Makes the text a little bolder */
+    font-size: 16px; /* Optional: Adjusts the font size */
+  
+    &:hover {
+      color: #3a6a6d; /* Darker green on hover */
+      text-decoration: none; /* Removes underline on hover */
+    }
+  }
+  
+  
+
 .login{
     display: flex;
     justify-content: center;

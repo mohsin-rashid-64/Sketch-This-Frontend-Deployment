@@ -76,7 +76,7 @@ function Boards() {
                     <div className="row">
                         {boards.slice(0, page * pageSize).map((board, index) => (
                             <div className="col-lg-4 col-md-4" key={index}>
-                                <div className="card" data-aos="fade-down" data-aos-duration="1000">
+                                <div className="card" data-aos="fade-down" data-aos-duration="1000" onClick={() => toBoards(board)} >
                                     <div className="head">
                                         <img
                                             src={`data:image/jpeg;base64,${board.image_url.replace(/(^"|"$)/g, '')}`}

@@ -3,6 +3,7 @@
         "id": 1,
         "title": "Design Assistance",
         "price": "$15",
+        "yearlyPrice": "$180", 
         "description": "Monthly design feedback",
         "buttonText": "Book Here",
         "features": [
@@ -17,6 +18,7 @@
         "id": 2,
         "title": "Design Review",
         "price": "$50",
+        "yearlyPrice": "$600",
         "description": "Monthly design consultation",
         "buttonText": "Book Here",
         "features": [
@@ -30,11 +32,12 @@
     },
     {
         "id": 3,
-        "popular":"Most Popular",
+        "popular": "Most Popular",
         "title": "Design Creation",
         "price": "..",
-        "description": "Price upon request. A designer will create a design  ",
-        "buttonText": " Book Here",
+        "yearlyPrice": "..",
+        "description": "Price upon request. A designer will create a design",
+        "buttonText": "Book Here",
         "features": [
             "Live consultation",
             "1 or more design board creations",

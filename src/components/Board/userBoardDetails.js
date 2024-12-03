@@ -197,7 +197,7 @@ function BoardDetail() {
           </div>
         </div>
       </div>
-      {/* <DraggableContainer images={images} /> */}
+      <DraggableContainer />
     </>
   );
 }

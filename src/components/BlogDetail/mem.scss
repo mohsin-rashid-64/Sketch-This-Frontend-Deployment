@@ -1,0 +1,38 @@
+.toggle-switch {
+   
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px; /* Space between the toggle and the card section */
+}
+
+.toggle-input {
+    width: 60px;
+    height: 30px;
+    background-color: #ce6a6a;
+    border-radius: 20px;
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    outline: none;
+    border: none;
+}
+
+.toggle-input:checked {
+    background-color: #4CAF50; /* Green for yearly */
+}
+
+.toggle-input::before {
+    content: '';
+    position: absolute;
+    top: 14px;
+    left: 4px;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background-color: rgb(240, 159, 10);
+    transition: left 0.3s;
+}
+
+.toggle-input:checked::before {
+    left: 34px; /* Move to the right when checked */
+}

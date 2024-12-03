@@ -9,6 +9,8 @@ import { Link } from "react-router-dom";
 import Modal from "../ModelCart/Modal.js";
 import HelpCenterModal from "../../components/HelpCenterModal/HelpCenterModal"; // Import the HelpCenterModal component
 import axios from "axios";
+import AuthModalContainer from "../Login/AuthModalContainer.js";
+
 
 import { AuthContext } from "../../Context/AuthContext.js";
 
@@ -46,6 +48,7 @@ const Navbar = () => {
 
     return (
         <React.Fragment>
+            
             <BootstrapNavbar
                 className={`${scrolling ? "scrolling" : ""}`}
                 expand="lg"
@@ -91,8 +94,9 @@ const Navbar = () => {
                                 </Dropdown>
                             ) : (
                                 <>
-                                    <button className="nav-link" onClick={() => { setShowLogin(true) }}>Login</button>
-                                    <button onClick={() => { setShowRegister(true) }} className="nav-link">Register</button>
+                                <AuthModalContainer/>
+                                    {/* <button className="nav-link" onClick={() => { setShowLogin(true) }}>Login</button>
+                                    <button onClick={() => { setShowRegister(true) }} className="nav-link">Register</button> */}
                                 </>
                             )}
                         </Nav>
