@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import AOS from 'aos';
 import './SeeBoard.scss';
 import axios from 'axios';
+import { height, width } from '@mui/system';
 
 const tabs = [
     { id: 'my-space', title: 'My Space' },
@@ -30,7 +31,7 @@ function SeeBoard() {
                     page_size: pageSize
                 }
             });
-
+            console.log("RESPONSE DATA",response)
             if (response.data.length < pageSize) {
                 setAllBoardsLoaded(true);
             }
@@ -58,8 +59,13 @@ function SeeBoard() {
             description: board.description,
             title: board.title,
             hex_code: board.hex_code,
+            width: board.width,
+            height: board.height,
+            generated_title:board.generated_title
+            
         };
         navigate('/UserBoard', { state: { userBoard: userBoard } });
+
     }, [navigate]);  // Memoize with useCallback to avoid multiple executions
 
     useEffect(() => {
@@ -95,7 +101,7 @@ function SeeBoard() {
               </div>
               <div className="content">
                 <h3 >
-                  {card.title}
+                  {card.generated_title}
                 </h3>
                 <button onClick={() => toBoards(card)} className="readMore">
                   See Board <img src="/images/read.svg" alt="readImg" />
@@ -132,8 +138,9 @@ function SeeBoard() {
                         {!allBoardsLoaded && (
                             <button onClick={loadMoreBoards} className="seeAll">
                                 Load More <img src="/images/arrowRight.svg" alt="arrowRight" />
-                            </button>
+                            </button>   
                         )}
+                        
                     </div>
                 </div>
             </div>

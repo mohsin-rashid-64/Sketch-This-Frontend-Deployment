@@ -86,7 +86,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 20px;
+    margin-left: -23px;
+    // margin-bottom: 20px;
+    
 
     .stepInd {
         width: 60px;
@@ -96,7 +98,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        margin: 0 30px; // Adjust spacing between steps
+        margin: 0 28px; // Adjust spacing between steps
         font-weight: bold;
         color: #fff; // Default color for the text
         position: relative; // Needed for positioning the line
@@ -127,5 +129,10 @@
 
     .stepInd.selected {
         background-color: #2b9f97; // Selected step color
+    }
+}
+@media screen and (max-width:768px){
+    .step-indicator {
+        width: 280px;
     }
 }

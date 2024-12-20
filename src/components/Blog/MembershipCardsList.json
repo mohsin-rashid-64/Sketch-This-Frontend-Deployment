@@ -2,8 +2,7 @@
     {
         "id": 1,
         "title": "Basic",
-        "price": "$15",
-        "yearlyPrice": "$180", 
+        "price": "$0",
         "description": "Design feedback",
         "buttonText": "Book Here",
         "features": [
@@ -18,7 +17,6 @@
         "id": 2,
         "title": "Gold",
         "price": "$50",
-        "yearlyPrice": "$600",
         "description": "Design consultation",
         "buttonText": "Book Here",
         "features": [
@@ -34,8 +32,7 @@
         "id": 3,
         "popular": "Most Popular",
         "title": "Platinum",
-        "price": "100",
-        "yearlyPrice": "1000",
+        "price": "$100",
         "description": "Price upon request. A designer will create a design",
         "buttonText": "Book Here",
         "features": [

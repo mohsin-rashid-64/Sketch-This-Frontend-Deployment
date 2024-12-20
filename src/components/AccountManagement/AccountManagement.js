@@ -53,36 +53,32 @@ function AccountManagement() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log("localStorage.getItem('jwt')", localStorage.getItem('jwt'));
         try {
-            // Combine EditProfile and AccountManagement data
             const combinedData = {
                 ...accountData,
                 ...JSON.parse(localStorage.getItem('editProfileData'))
             };
-    
-            // Set up headers with the Bearer token
             const config = {
                 headers: {
                     'Authorization': `Bearer ${localStorage.getItem('jwt')}`,
                     'Content-Type': 'application/json'
                 }
             };
-    
-            // Send API request with token in Authorization header
             const response = await axios.post(
                 `${process.env.REACT_APP_API_URL}/api/save-profile`,
                 combinedData,
                 config
             );
-    
-            console.log(response.data); // Log success message
-    
-            // Redirect to the home page on successful save
+            console.log(response.data);
+            alert("Your profile is updated");
             navigate('/');
         } catch (error) {
             console.error('Error saving data:', error);
-            // Handle error scenarios like displaying an error message to the user
+            if (error.response && error.response.data.error) {
+                alert(error.response.data.error); // Display backend error message
+            } else {
+                alert('An unexpected error occurred. Please try again.');
+            }
         }
     };
     

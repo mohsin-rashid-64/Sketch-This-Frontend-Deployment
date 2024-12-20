@@ -1,572 +1,3 @@
-// // // .Steps{
-// // //     background: url(../../../../public/images/StepBack.png);
-// // //     background-size: cover;
-// // //     background-repeat: no-repeat;
-// // //     background-position: center;
-// // //     padding: 70px 0;
-// // //     @media screen and (max-width:992px){
-// // //         padding: 50px 0;
-// // //        }
-// // //     .title{
-// // //         text-align: center;
-// // //         margin-bottom: 60px;
-// // //         h2{
-// // //             font-size: 48px;
-// // //             color: #000;
-// // //             margin-bottom: 15px;
-// // //             @media screen and (max-width:1200px){
-// // //                 font-size: 38px;
-// // //                 line-height: 55px;
-// // //               }
-// // //         }
-// // //         p{
-// // //             font-size: 20px;
-// // //             color: #000000a2;
-// // //             margin: 0 0 25px;
-// // //             margin: 0 auto 35px;
-// // //         }
-// // //     }
-// // //     img{
-// // //         width: 100%;
-// // //     }
-// // // }
-
-
-
-
-// // body {
-// //     margin: 0;
-// //     font-family: 'Arial', sans-serif;
-// //     background-color: #f5f5f5;
-// //   }
-  
-// //   .Steps {
-// //     text-align: center;
-// //     padding: 50px 20px;
-// //   }
-  
-// //   .step-indicator {
-// //     display: flex;
-// //     justify-content: center;
-// //     margin-bottom: 20px;
-// //   }
-  
-// // //   .step {
-// // //     width: 30px;
-// // //     height: 30px;
-// // //     border-radius: 50%;
-// // //     background: #ddd;
-// // //     line-height: 30px;
-// // //     margin: 0 5px;
-// // //     display: flex;
-// // //     align-items: center;
-// // //     justify-content: center;
-// // //     color: white;
-// // //   }
-  
-// //   .step.active {
-// //     background: #00bfa5;
-// //   }
-  
-// //   .main-title {
-// //     font-size: 20px;
-// //     margin-bottom: 40px;
-// //   }
-  
-// //   .selectors-container {
-// //     display: flex;
-// //     justify-content: space-around;
-// //     margin-bottom: 40px;
-    
-// //   }
-  
-// //   .category-selector {
-// //     width: 30%;
-    
-// //   }
-  
-// //   .category-title {
-// //     // height: 60px;
-// //     font-size: 18px;
-// //     margin-top: 20px;
-// //     // text-align: center;
-// //     margin-bottom: 20px;
-// //     color: white;
-// //     background-color: #2B9F97;
-// //     border-radius: 50px;
-// //     padding: 10px;
-// //   }
-  
-// //   .option {
-// //     background: white;
-// //     // border: 1px solid #2B9F97;
-// //     border: 1px solid rgba(15, 15, 15, 0.164);
-
-// //     border-radius: 50px;
-// //     padding: 10px 20px;
-// //     margin: 10px 0;
-// //     cursor: pointer;
-// //     height: 20%;
-// //     display: flex;
-// //     align-items: center;
-// //     justify-content: center;
-// //     position: relative;
-// //     color: black;
-// //     transition: background-color 0.3s, color 0.3s;
-// //   }
-  
-// //   .option:hover {
-// //     background-color: #e0f7fa;
-// //   }
-  
-// //   .option.selected {
-// //     background-color: #123432dc;
-// //     // border: #2B9F97;
-// //     color: white;
-// //   }
-  
-// //   .checkmark {
-// //     position: absolute;
-// //     left: 10px;
-// //   }
-  
-// // //   .next-step {
-// // //     background-color: #00bfa5;
-// // //     color: white;
-// // //     padding: 10px 20px;
-// // //     border: none;
-// // //     border-radius: 5px;
-// // //     cursor: pointer;
-// // //     font-size: 16px;
-// // //     transition: background-color 0.3s;
-// // //   }
-  
-// // //   .next-step:hover {
-// // //     background-color: #00796b;
-// // //   }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// /* Steps.scss */
-// .Steps {
-//     .container {
-//         text-align: center;
-//     }
-
-//     .category-selector {
-//         margin-bottom: 20px;
-
-//         .category-title {
-//             font-weight: bold;
-//             margin-bottom: 10px;
-//         }
-
-//         .option {
-//             cursor: pointer;
-//             padding: 10px;
-//             border: 1px solid #ccc;
-//             margin: 5px 0;
-//             border-radius: 5px;
-//             transition: background-color 0.3s;
-
-//             &.selected {
-//                 background-color: #000;
-//                 color: #fff;
-//             }
-
-//             .checkmark {
-//                 margin-right: 10px;
-//             }
-//         }
-//     }
-
-//     .navigation-buttons {
-//         display: flex;
-//         justify-content: center;
-
-//         button {
-//             margin: 0 10px;
-//             padding: 10px 20px;
-//             border: none;
-//             background-color: #000;
-//             color: #fff;
-//             cursor: pointer;
-//             border-radius: 5px;
-//             transition: background-color 0.3s;
-
-//             &:disabled {
-//                 background-color: #ccc;
-//                 cursor: not-allowed;
-//             }
-
-//             &:hover:not(:disabled) {
-//                 background-color: #333;
-//             }
-//         }
-//     }
-
-//     .image-container {
-//         margin-top: 20px;
-
-//         img {
-//             max-width: 100%;
-//             height: auto;
-//         }
-
-//         button {
-//             margin-top: 10px;
-//             padding: 10px 20px;
-//             border: none;
-//             background-color: #000;
-//             color: #fff;
-//             cursor: pointer;
-//             border-radius: 5px;
-//             transition: background-color 0.3s;
-
-//             &:hover {
-//                 background-color: #333;
-//             }
-//         }
-//     }
-// }
-
-
-
-
-// .Steps {
-//   background: url(../../../../public/images/StepBack.png);
-//   background-size: cover;
-//   background-repeat: no-repeat;
-//   background-position: center;
-//   padding: 70px 0;
-
-//   @media screen and (max-width: 992px) {
-//       padding: 50px 0;
-//   }
-
-//   .title {
-//       text-align: center;
-//       margin-bottom: 60px;
-
-//       h2 {
-//           font-size: 48px;
-//           color: #000;
-//           margin-bottom: 15px;
-
-//           @media screen and (max-width: 1200px) {
-//               font-size: 38px;
-//               line-height: 55px;
-//           }
-//       }
-
-//       p {
-//           font-size: 20px;
-//           color: #000000a2;
-//           margin: 0 0 25px;
-//           margin: 0 auto 35px;
-//       }
-//   }
-
-//   img {
-//       width: 100%;
-//   }
-//   .make-card {
-//     background-color: rgba(255, 255, 255, 0.9); // Semi-transparent white background
-//     border-radius: 30px; // Rounded corners
-//     padding: 20px; // Padding inside the card
-//     box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1); // Subtle shadow for depth
-//     max-width: 870px; // Maximum width of the card
-//     margin: 20px auto; // Center the card and add some vertical margin
-//     position: relative; // Relative positioning for absolute elements inside
-//     z-index: 1; // Ensuring it appears behind the other elements
-//     padding: 80px;
-// }
-
-
-//   .step-indicator {
-//       display: flex;
-//       justify-content: center;
-//       margin-bottom: 20px;
-
-//       .step {
-//           width: 30px;
-//           height: 30px;
-//           border-radius: 50%;
-//           background: #ddd;
-//           line-height: 30px;
-//           margin: 0 5px;
-//           display: flex;
-//           align-items: center;
-//           justify-content: center;
-//           color: white;
-
-//           &.active {
-//               background: #00bfa5;
-//           }
-//       }
-//   }
-
-//   .main-title {
-//       font-size: 20px;
-//       margin-bottom: 40px;
-//   }
-
-
-
-
-//   .selectors-container {
-//     display: flex;
-//     justify-content: space-around;
-//     margin-bottom: 40px;
-  
-//     .category-selector {
-//       width: 33%;
-  
-//       // .category-title {
-//       //   font-size: 18px;
-//       //   margin-top: 20px;
-//       //   margin-bottom: 20px;
-//       //   color: white;
-//       //   border-radius: 50px;
-//       //   padding: 10px;
-//       //   text-align: center;
-//       //   // background-color: #123432dc;
-//       //   background-image: url(../../../../public/images/chooseFunction.jpeg); /* Background image */
-//       //   background-size: cover;
-//       //   background-repeat: no-repeat;
-//       //   background-position: center;
-//       // }
-
-
-
-//       .category-title {
-//         font-size: 18px;
-//         margin-top: 20px;
-//         margin-bottom: 20px;
-//         color: white;
-//         border-radius: 50px;
-//         padding: 10px;
-//         text-align: center;
-//         background-image: url(../../../../public/images/chooseFunction.jpeg); /* Background image */
-//         background-size: cover;
-//         background-repeat: no-repeat;
-//         background-position: center;
-//         position: relative;
-//         z-index: 1;
-//     }
-    
-//     .category-title::before {
-//         content: '';
-//         position: absolute;
-//         top: 0;
-//         right: 0;
-//         bottom: 0;
-//         left: 0;
-//         // background-color: rgba(17, 68, 44, 0.841); 
-//         background-color: rgba(26, 115, 108, 0.891);
-//         // mix-blend-mode: color;
-//         border-radius: 50px;
-//         z-index: -1;
-//     }
-    
-    
-      
-  
-//       // .option {
-//       //   background: white;
-//       //   border: 1px solid rgba(15, 15, 15, 0.164);
-//       //   border-radius: 50px;
-//       //   padding: 10px 20px;
-//       //   margin: 10px 0;
-//       //   cursor: pointer;
-//       //   display: flex;
-//       //   align-items: center;
-//       //   justify-content: center;
-//       //   position: relative;
-//       //   color: black;
-//       //   transition: background-color 0.3s, color 0.3s, border-color 0.3s;
-  
-//       //   &:hover {
-//       //     background-color: #e0f7fa;
-//       //     border-color: #2b9f97;
-//       //   }
-  
-//       //   &.selected {
-//       //     border-color: #2b9f97;
-//       //     // background-color: inherit; // Keep the background color unchanged
-//       //   }
-  
-//       //   .checkmark {
-//       //     position: absolute;
-//       //     left: 10px;
-//       //     color:#2b9f97;
-//       //   }
-//       // }
-
-//       .option {
-//         background: white;
-//         border: 2px solid rgba(15, 15, 15, 0.5); /* Slightly darker border to make the box visible */
-//         border-radius: 50px;
-//         padding: 10px 20px;
-//         margin: 10px 0;
-//         cursor: pointer;
-//         display: flex;
-//         align-items: center;
-//         justify-content: center;
-//         position: relative;
-//         color: black;
-//         transition: background-color 0.3s, color 0.3s, border-color 0.3s;
-      
-//         &:hover {
-//           background-color: #e0f7fa;
-//           border-color: #2b9f97;
-//         }
-      
-//         &.selected {
-//           border-color: #2b9f97;
-//           color:#2b9f97;
-//           font-weight: bold;
-//           // background-color: #e0f7fa; 
-//         }
-      
-//         .checkmark {
-//           display: flex;
-//           align-items: center;
-//           justify-content: center;
-//           width: 24px; /* Width of the checkmark box */
-//           height: 24px; /* Height of the checkmark box */
-//           border-radius: 50%; /* Round shape */
-//           border: 2px solid #2b9f97; /* Border color */
-//           color: #2b9f97; /* Checkmark color */
-//           background-color: white; /* Background color of the checkmark box */
-//           font-size: 16px; /* Size of the checkmark */
-//           line-height: 24px; /* Center the checkmark vertically */
-//           position: absolute;
-//           left: 10px;
-//           visibility: hidden; /* Initially hidden */
-
-//         }
-        
-//         &.selected .checkmark {
-//           visibility: visible; /* Show checkmark when selected */
-
-//         }
-//       }
-      
-      
-      
-//     }
-//   }
-  
-  
-//   .navigation-buttons {
-//     display: flex;
-//     justify-content: space-between;
-
-//     button {
-//         margin: 0 10px;
-//         padding: 10px 20px;
-//         border: none;
-//         background-color: #000;
-//         color: #fff;
-//         cursor: pointer;
-//         border-radius: 5px;
-//         transition: background-color 0.3s;
-//         img{
-//           margin-left: 10px;
-//           width: 20px;
-//           transition: all 0.4s;
-//           margin-right: 10px;
-
-//       }
-
-//         &:disabled {
-//             background-color: #ccc;
-//             cursor: not-allowed;
-//         }
-
-//         &:hover:not(:disabled) {
-//             // background-color: #333;
-//             background-color: #2b9f97;
-
-//         }
-//     }
-// }
-
-//   .image-container {
-//       margin-top: 20px;
-
-//       img {
-//           max-width: 100%;
-//           height: auto;
-//       }
-
-//       button {
-//           margin-top: 10px;
-//           padding: 10px 20px;
-//           border: none;
-//           background-color: #000;
-//           color: #fff;
-//           cursor: pointer;
-//           border-radius: 5px;
-//           transition: background-color 0.3s;
-
-//           &:hover {
-//               background-color: #333;
-//           }
-//       }
-//   }
-// }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -655,7 +86,7 @@
     display: flex;
     justify-content: space-around;
     margin-bottom: 40px;
-  
+ 
     .category-selector {
       width: 33%;
   
@@ -675,7 +106,7 @@
       // }
 
 
-
+      
       .category-title {
         font-size: 18px;
         margin-top: 20px;
@@ -743,6 +174,7 @@
       // }
 
       .option {
+        
         background: white;
         border: 2px solid rgba(15, 15, 15, 0.5); /* Slightly darker border to make the box visible */
         border-radius: 50px;
@@ -754,6 +186,7 @@
         justify-content: center;
         position: relative;
         color: black;
+        
         transition: background-color 0.3s, color 0.3s, border-color 0.3s;
       
         &:hover {
@@ -767,6 +200,7 @@
           font-weight: bold;
           // background-color: #e0f7fa; 
         }
+       
       
         .checkmark {
           display: flex;
@@ -793,6 +227,12 @@
       }
       
       
+      
+    }
+    @media screen and (max-width: 768px) {
+      .category-selector {
+        width: 100%;
+      }
       
     }
   }
@@ -857,4 +297,11 @@
   }
 }
 
-  
+@media screen and (max-width:768px){
+  .option{
+    border: 2px solid #000;
+    width: 240px;
+    margin-left: -100px;
+  }
+
+}

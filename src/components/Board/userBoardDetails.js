@@ -72,6 +72,7 @@ const Grid = ({ images }) => {
 function BoardDetail() {
   const location = useLocation();
   const { userBoard } = location.state || {};
+  console.log("from user boardXXXXx",userBoard);
 
   const [images, setImages] = useState([]);
   const [colors, setColors] = useState([]);
@@ -122,7 +123,7 @@ function BoardDetail() {
       <Navbar />
       <div className="boardDetails">
         <div className="title" data-aos="fade-up" data-aos-duration="1000">
-          <h2>{userBoard.title || "Living Room"}</h2>
+          <h2>{userBoard.generated_title || "Living Room"}</h2>
           <p>Your World Of Inspiration</p>
         </div>
         <div className="container">
@@ -164,7 +165,7 @@ function BoardDetail() {
                   ) : (
                     <p>No image available</p>
                   )}
-                  <h4 style={{ textAlign: "justify" }}>{userBoard.title}</h4>
+                  <h4 style={{ textAlign: "justify" }}>{userBoard.generated_title}</h4>
                   <br />
                   <p style={{ textAlign: "justify" }}>
                     <ReactMarkdown>{userBoard.description}</ReactMarkdown>
@@ -197,7 +198,8 @@ function BoardDetail() {
           </div>
         </div>
       </div>
-      <DraggableContainer />
+      {/* <DraggableContainer /> */}
+      {/* <DraggableContainer userBoard={userBoard} /> */}
     </>
   );
 }

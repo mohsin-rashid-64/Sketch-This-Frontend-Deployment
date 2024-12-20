@@ -88,6 +88,7 @@ const Navbar = () => {
                                         <Dropdown.Item onClick={openHelpCenterModal}>Help Center</Dropdown.Item> {/* Open Help Center modal */}
                                         <button type="button" onClick={() => {
                                             _setAuth(false);
+                                            navigate("/")
                                             localStorage.removeItem('jwt');
                                         }}>Sign out</button>
                                     </Dropdown.Menu>

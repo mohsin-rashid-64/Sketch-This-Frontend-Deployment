@@ -30,7 +30,6 @@ const Grid = ({ images }) => {
       }, []);
     };
   
-    console.log(images);
     const imageChunks = chunkArray(images, 5);
   
     return imageChunks.map((chunk, idx) => (
@@ -104,11 +103,14 @@ function BoardDetail() {
                     selections: selections,
                     selectedProducts: selectedProducts,
                 });
-                console.log('THE RESPONSE OF BOARD DETAILS',response)
+                localStorage.setItem('description',JSON.stringify(description))
+
                 if (response.data.image_url) {
+                    localStorage.setItem('description',JSON.stringify(description))
                     setImage(response.data.image_url);
                     localStorage.setItem("generateImage", response.data.image_url);
                     localStorage.setItem('background_removed_images',background_removed_images)
+                    
                 } else {
                     throw new Error('Image URL is missing from the response.');
                 }

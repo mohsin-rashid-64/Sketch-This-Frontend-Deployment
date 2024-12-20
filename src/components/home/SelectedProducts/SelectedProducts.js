@@ -61,6 +61,7 @@ const Products = () => {
                 throw new Error('Network response was not ok');
             }
             const data = await response.json();
+            console.log('DATA',data)
             const productsWithDecodedImages = data.map(product => ({
                 ...product,
                 image: `data:image/jpeg;base64,${product.Image}`

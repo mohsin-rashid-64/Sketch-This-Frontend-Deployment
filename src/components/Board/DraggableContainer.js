@@ -1,31 +1,44 @@
-import React, { useState, useRef, useEffect } from 'react';
-import './RoomDesigner.scss'; // Import the SCSS file
 
-const RoomDesigner = () => {
+import React, { useState, useRef, useEffect } from "react";
+import "./RoomDesigner.scss"; // Import the SCSS file
+
+const RoomDesigner = ({ userBoard }) => {
+  console.log("userBoard from draggable", userBoard);
+
+  // Parse dimensions dynamically from userBoard
+  const backgroundWidths = userBoard.width.split(",").map(Number);
+  const backgroundHeights = userBoard.height.split(",").map(Number);
+  const titles = userBoard.title.split(",").map((title) => title.trim());
+
   const [roomWidth, setRoomWidth] = useState(100);
   const [roomLength, setRoomLength] = useState(100);
-  const [furniture, setFurniture] = useState([
-    { name: 'sofa', width: 20, length: 30, position: { x: 0, y: 0 }, rotation: 0 },
-    { name: 'bed', width: 30, length: 40, position: { x: 0, y: 0 }, rotation: 0 },
-    { name: 'table', width: 20, length: 20, position: { x: 0, y: 0 }, rotation: 0 },
-  ]);
+
+  // Dynamically initialize furniture based on dimensions from userBoard
+  const [furniture, setFurniture] = useState(
+    backgroundWidths.map((width, index) => ({
+      name: titles[index] || `Item ${index + 1}`, // Use titles if available, otherwise default to 'Item X'
+      width,
+      length: backgroundHeights[index] || 0, // Use 0 if no matching height is available
+      position: { x: 0, y: 0 },
+      rotation: 0,
+    }))
+  );
 
   const [isDragging, setIsDragging] = useState(false);
   const [activeElement, setActiveElement] = useState(null);
   const [offset, setOffset] = useState({ x: 0, y: 0 });
-  const [step, setStep] = useState(1); // Step control for showing input or room design
+  const [step, setStep] = useState(1);
 
   const roomAreaRef = useRef(null);
-  const [baseDimension, setBaseDimension] = useState(350); // Store base dimension for different media screens
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth); // State to store window width
-
+  const [baseDimension, setBaseDimension] = useState(350);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   useEffect(() => {
     const handleResize = () => {
       setWindowWidth(window.innerWidth);
     };
 
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   // Update base dimension based on screen size
@@ -94,7 +107,10 @@ const RoomDesigner = () => {
       ...element,
       position: {
         x: Math.max(0, Math.min(x, roomWidth * ratio - element.width * ratio)),
-        y: Math.max(0, Math.min(y, roomLength * ratio - element.length * ratio)),
+        y: Math.max(
+          0,
+          Math.min(y, roomLength * ratio - element.length * ratio)
+        ),
       },
     };
 
@@ -115,8 +131,8 @@ const RoomDesigner = () => {
 
   // Helper function to find the largest furniture dimensions
   const getMaxFurnitureDimensions = () => {
-    const maxWidth = Math.max(...furniture.map(item => item.width));
-    const maxLength = Math.max(...furniture.map(item => item.length));
+    const maxWidth = Math.max(...furniture.map((item) => item.width));
+    const maxLength = Math.max(...furniture.map((item) => item.length));
     return { maxWidth, maxLength };
   };
 
@@ -129,7 +145,9 @@ const RoomDesigner = () => {
     const { maxWidth, maxLength } = getMaxFurnitureDimensions();
 
     if (roomWidth < maxWidth || roomLength < maxLength) {
-      alert(`Room dimensions must be at least ${maxWidth}x${maxLength} to fit the furniture.`);
+      alert(
+        `Room dimensions must be at least ${maxWidth}x${maxLength} to fit the furniture.`
+      );
     } else {
       setStep(2); // Move to the next step to show room and furniture
     }
@@ -142,20 +160,28 @@ const RoomDesigner = () => {
   // Function to rotate furniture
   const rotateFurniture = (index, direction) => {
     const updatedFurniture = [...furniture];
-    updatedFurniture[index].rotation = (updatedFurniture[index].rotation + (direction === 'left' ? -5 : 5)) % 360; // Rotate 5 degrees
+    updatedFurniture[index].rotation =
+      (updatedFurniture[index].rotation + (direction === "left" ? -5 : 5)) %
+      360; // Rotate 5 degrees
     setFurniture(updatedFurniture);
   };
 
   // Start rotating left continuously
   const startRotateLeft = (index) => {
-    rotateFurniture(index, 'left');
-    rotationIntervalRef.current = setInterval(() => rotateFurniture(index, 'left'), 100);
+    rotateFurniture(index, "left");
+    rotationIntervalRef.current = setInterval(
+      () => rotateFurniture(index, "left"),
+      100
+    );
   };
 
   // Start rotating right continuously
   const startRotateRight = (index) => {
-    rotateFurniture(index, 'right');
-    rotationIntervalRef.current = setInterval(() => rotateFurniture(index, 'right'), 100);
+    rotateFurniture(index, "right");
+    rotationIntervalRef.current = setInterval(
+      () => rotateFurniture(index, "right"),
+      100
+    );
   };
 
   return (
@@ -171,7 +197,7 @@ const RoomDesigner = () => {
                 type="text"
                 value={roomWidth}
                 onChange={(event) => handleInputChange(event, setRoomWidth)}
-                style={{ width: '60px' }}
+                style={{ width: "60px" }}
               />
             </div>
             <div className="input-field">
@@ -180,7 +206,7 @@ const RoomDesigner = () => {
                 type="text"
                 value={roomLength}
                 onChange={(event) => handleInputChange(event, setRoomLength)}
-                style={{ width: '60px' }}
+                style={{ width: "60px" }}
               />
             </div>
             <button className="next-button" onClick={handleNextClick}>
@@ -191,7 +217,9 @@ const RoomDesigner = () => {
 
         {step === 2 && (
           <div className="dimension-display">
-            <p>Room dimension: {roomWidth} x {roomLength}</p>
+            <p>
+              Room dimension: {roomWidth} x {roomLength}
+            </p>
 
             <button className="back-button" onClick={handleBackClick}>
               Back
@@ -207,25 +235,33 @@ const RoomDesigner = () => {
             {furniture.map((item, index) => (
               <div
                 key={item.name}
-                className={`furniture-item ${item.name} ${activeElement === index ? 'active' : ''}`}
+                className={`furniture-item ${item.name} ${
+                  activeElement === index ? "active" : ""
+                }`}
                 onMouseDown={(event) => handleMouseDown(event, index)}
                 onTouchStart={(event) => handleTouchStart(event, index)} // Add touch event handler
                 style={{
-                  backgroundColor: activeElement === index ? '#d3d3d3' : '#fff',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'space-between',
-                  padding: '8px',
-                  borderRadius: '8px',
-                  cursor: 'pointer', // Highlight if selected
+                  backgroundColor: activeElement === index ? "#d3d3d3" : "#fff",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                  padding: "8px",
+                  borderRadius: "8px",
+                  cursor: "pointer", // Highlight if selected
                 }}
               >
                 <div>
-                  {`${item.name.charAt(0).toUpperCase() + item.name.slice(1)}: ${item.width} x ${item.length}`}
+                <div>
+  {`${
+    item.name.split(" ")[0].charAt(0).toUpperCase() + 
+    item.name.split(" ")[0].slice(1)
+  }: ${item.width} x ${item.length}`}
+</div>
+
                 </div>
                 <div>
-                  <span 
-                    className="rotate-icon" 
+                  <span
+                    className="rotate-icon"
                     onMouseDown={(event) => {
                       event.stopPropagation(); // Prevent triggering the mouse down event
                       startRotateLeft(index);
@@ -236,12 +272,16 @@ const RoomDesigner = () => {
                     }} // Add touch event handler
                     onMouseUp={handleMouseUp} // Stop rotating on mouse up
                     onTouchEnd={handleMouseUp} // Stop rotating on touch end
-                    style={{ marginLeft: '8px', cursor: 'pointer', userSelect: 'none',  }}
+                    style={{
+                      marginLeft: "8px",
+                      cursor: "pointer",
+                      userSelect: "none",
+                    }}
                   >
                     ⟲
                   </span>
-                  <span  
-                    className="rotate-icon" 
+                  <span
+                    className="rotate-icon"
                     onMouseDown={(event) => {
                       event.stopPropagation(); // Prevent triggering the mouse down event
                       startRotateRight(index);
@@ -252,7 +292,11 @@ const RoomDesigner = () => {
                     }} // Add touch event handler
                     onMouseUp={handleMouseUp} // Stop rotating on mouse up
                     onTouchEnd={handleMouseUp} // Stop rotating on touch end
-                    style={{ marginLeft: '20px', cursor: 'pointer', userSelect: 'none',  }}
+                    style={{
+                      marginLeft: "20px",
+                      cursor: "pointer",
+                      userSelect: "none",
+                    }}
                   >
                     ⟳
                   </span>
@@ -267,11 +311,11 @@ const RoomDesigner = () => {
             style={{
               width: `${roomWidth * ratio}px`,
               height: `${roomLength * ratio}px`,
-              border: '12px solid #b2bebf',
-              position: 'relative',
-              backgroundColor: '#d1a36b',
-              marginRight: '30px',
-              overflow: 'auto', // Allow scrolling in the room area
+              border: "12px solid #b2bebf",
+              position: "relative",
+              backgroundColor: "#d1a36b",
+              marginRight: "30px",
+              overflow: "auto", // Allow scrolling in the room area
             }}
             onMouseMove={handleMouseMove}
             onTouchMove={handleTouchMove} // Add touch move handler
@@ -281,31 +325,33 @@ const RoomDesigner = () => {
             {furniture.map((item, index) => (
               <div>
                 <div
-                key={item.name}
-                className={item.name}
-                style={{
-                  touchAction: 'none',
-                  width: item.width * ratio,
-                  height: item.length * ratio,
-                  top: item.position.y,
-                  left: item.position.x,
-                  position: 'absolute',
-                  transform: `rotate(${item.rotation}deg)`,
-                  transformOrigin: 'center center',
-                  backgroundColor: '#5e3b3b',
-                  display: 'flex',
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                  cursor: 'move',
-                  color: 'white',
-               
-                
-                }}
-                onMouseDown={(event) => handleMouseDown(event, index)}
-                onTouchStart={(event) => handleTouchStart(event, index)} // Add touch event handler
-              >
-                {`${item.name.charAt(0).toUpperCase() + item.name.slice(1)}`}
-              </div>
+                  key={item.name}
+                  className={item.name}
+                  style={{
+                    touchAction: "none",
+                    width: item.width * ratio,
+                    height: item.length * ratio,
+                    top: item.position.y,
+                    left: item.position.x,
+                    position: "absolute",
+                    transform: `rotate(${item.rotation}deg)`,
+                    transformOrigin: "center center",
+                    backgroundColor: "#5e3b3b",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    cursor: "move",
+                    color: "white",
+                  }}
+                  onMouseDown={(event) => handleMouseDown(event, index)}
+                  onTouchStart={(event) => handleTouchStart(event, index)} // Add touch event handler
+                >
+                 <div>
+                 {item.name.split(" ")[0]}
+</div>
+
+             
+                </div>
               </div>
             ))}
           </div>

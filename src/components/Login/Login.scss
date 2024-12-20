@@ -182,3 +182,33 @@
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
+.password-input-wrapper {
+    position: relative;
+    width: 100%;
+  }
+  
+  input[type="password"], input[type="text"] {
+    width: 100%;
+    padding-right: 30px;  // Add padding on the right side for the icon
+  }
+  
+  .eye-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 18px;  // Adjust size as needed
+    color: #333;      // Customize the color of the eye icon
+  }
+  

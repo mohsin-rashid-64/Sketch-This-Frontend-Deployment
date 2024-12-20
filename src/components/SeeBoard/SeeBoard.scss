@@ -1,5 +1,7 @@
 
 .seeBoard {
+    display: flex;
+    justify-content: flex-start;
     background: url(../../../public/images/blogback.png);
     background-size: cover;
     background-repeat: no-repeat;
@@ -214,7 +216,7 @@
     .row {
         display: flex;
         flex-wrap: wrap; /* Allow wrapping of items */
-        justify-content: space-between; /* Optional: distribute space evenly */
+        justify-content: flex-start; /* Optional: distribute space evenly */
         margin: 0 -15px; /* Adjust for your spacing */
     }
 
