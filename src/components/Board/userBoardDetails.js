@@ -26,7 +26,6 @@ const Grid = ({ images }) => {
     }, []);
   };
 
-  console.log(images);
   const imageChunks = chunkArray(images, 5);
 
   return imageChunks.map((chunk, idx) => (
@@ -43,6 +42,7 @@ const Grid = ({ images }) => {
           style={{
             width: "100%",
             height: "100%",
+            borderRadius:"28px"
           }}
           src={chunk[0]?.src}
         />
@@ -60,6 +60,7 @@ const Grid = ({ images }) => {
             alt="image"
             style={{
               width: "100%",
+              borderRadius:"28px"
             }}
             src={src.src}
           />
@@ -72,7 +73,6 @@ const Grid = ({ images }) => {
 function BoardDetail() {
   const location = useLocation();
   const { userBoard } = location.state || {};
-  console.log("from user boardXXXXx",userBoard);
 
   const [images, setImages] = useState([]);
   const [colors, setColors] = useState([]);
@@ -199,7 +199,7 @@ function BoardDetail() {
         </div>
       </div>
       {/* <DraggableContainer /> */}
-      {/* <DraggableContainer userBoard={userBoard} /> */}
+      <DraggableContainer userBoard={userBoard} />
     </>
   );
 }

@@ -16,7 +16,6 @@ export const AuthProvider = ({ children }) => {
     } else {
       _setAuth(false);
     }
-    console.log('JWT FROM YO CONTEXT', jwt);
   }, [_auth]);
 
   return (

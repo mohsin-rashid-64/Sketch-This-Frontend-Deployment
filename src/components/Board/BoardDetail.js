@@ -42,6 +42,8 @@ const Grid = ({ images }) => {
           }}
         >
           <img
+
+          className='image1'
             alt="image"
             style={{
               width: "100%",
@@ -58,11 +60,14 @@ const Grid = ({ images }) => {
           }}
         >
           {chunk.slice(1).map((src, idx) => (
+            
             <img
+            className='image1'
               key={idx}
               alt="image"
               style={{
                 width: "100%",
+                borderRadius:'50px'
               }}
               src={src.src}
             />

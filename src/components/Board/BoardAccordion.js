@@ -18,17 +18,14 @@
 //     const description = JSON.parse(localStorage.getItem("description") || '{}');
 //     const imageUrl = localStorage.getItem("generateImage");
 //     const selectedProductsfromlocal = localStorage.getItem("selectedProducts");
-//     console.log("select width XXXXX" ,selectedProducts)
 
 //     const hexColors = selectedProducts
 //     .filter(item => item.Hex_Code) // Filter items with a Color field
 //     .map(item => item.Hex_Code) // Extract the Color field
 //     .join(', ');
 
-// console.log("new imaaaaages",hexColors); // Outputs the array of hex color codes
 
 //     useEffect(() => {
-//         console.log("description from accordion",description.main_title)
 //         const calculateTotals = () => {
 //             const totalP = selectedProducts.reduce((acc, product) => {
 //                 const price = product.Price ? parseFloat(product.Price.toString().replace(/,/g, '')) : 0;
@@ -54,7 +51,6 @@
 //             const backgroundRemovedImagesStr = localStorage.getItem("background_removed_images");
 //             // let email = 'test@test.com'
 
-//             console.log('backeground image', backgroundRemovedImagesStr)
             
 //             const transformedProducts =
 
@@ -77,10 +73,8 @@
 //               ]
 
 //             // Log the transformed products for debugging
-//             console.log('Transformed Products:', JSON.stringify(transformedProducts, null, 2));
 
 
-//             console.log('BOARDA ACCORDIAN JWT',localStorage.getItem("jwt"))
 
 //             // Send the request to the API
 //             const response = await axios.post(`${process.env.REACT_APP_API_URL}/save-products/`, transformedProducts, {
@@ -91,7 +85,6 @@
 //             });
 
 //             // Log the API response for debugging
-//             console.log('API Response:', response.data);
 
 //             // Navigate on successful save
 //             navigate("/seeBoard");
@@ -200,7 +193,6 @@ function BoardAccordion() {
     const [totalPrice, setTotalPrice] = useState(0);
     const [totalAmount, setTotalAmount] = useState(0);
     const navigate = useNavigate();
-    console.log("these are the selected products",selectedProducts)
     
 
     // Fetching data from localStorage
@@ -214,22 +206,18 @@ function BoardAccordion() {
     .map(item => item.Hex_Code) // Extract the Color field
     .join(', ');
 
-    console.log("new selectedProducts", selectedProducts); // Outputs the array of hex color codes
 
     // Separate arrays for dimensions (height, width, depth)
     const heights = selectedProducts.map(product => product.height || '');
     const widths = selectedProducts.map(product => product.length || '');
 
-    console.log('Heights:', heights);  // Outputs an array of heights
-    console.log('length:', widths);  // Outputs an array of widths
-    
+ 
 
     // Mapping titles with commas replaced (replace commas with an underscore or any other character)
     const titles = selectedProducts
         .map(product => product.Title.replace(/,/g, '_'))  // Replacing commas with underscores
         .join(', ');
 
-    console.log('Mapped Titles:', titles);  // Outputs the comma-separated titles
 
     useEffect(() => {
         const calculateTotals = () => {
@@ -257,7 +245,6 @@ function BoardAccordion() {
             const backgroundRemovedImagesStr = localStorage.getItem("background_removed_images");
             // let email = 'test@test.com'
 
-            console.log('background image', backgroundRemovedImagesStr)
             
             const transformedProducts = [
                 {
@@ -276,10 +263,7 @@ function BoardAccordion() {
                 }
               ];
 
-            // Log the transformed products for debugging
-            console.log('Transformed Products:', JSON.stringify(transformedProducts, null, 2));
 
-            console.log('BOARDA ACCORDIAN JWT', localStorage.getItem("jwt"))
 
             // Send the request to the API
             const response = await axios.post(`${process.env.REACT_APP_API_URL}/save-products/`, transformedProducts, {
@@ -290,7 +274,6 @@ function BoardAccordion() {
             });
 
             // Log the API response for debugging
-            console.log('API Response:', response.data);
 
             // Navigate on successful save
             navigate("/seeBoard");

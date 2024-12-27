@@ -27,7 +27,6 @@
 //                 },
 //             }
 //         );
-//         console.log('Stripe response:', response.data);
 //         window.location.href = response.data.url;
 //     } catch (error) {
 //         console.error('Error creating checkout session:', error);
@@ -161,7 +160,7 @@ const callStripe = async (title, price) => {
                 },
             }
         );
-        console.log('Stripe response:', response.data);
+
         window.location.href = response.data.url;
     } catch (error) {
         console.error('Error creating checkout session:', error);

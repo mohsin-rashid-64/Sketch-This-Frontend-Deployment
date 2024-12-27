@@ -39,7 +39,6 @@ const Modal = ({ isOpen, onClose, cartItems, setCartItems }) => {
       if (response.status === 200) {
         // Remove the item from the cartItems state
         setCartItems(prevCartItems => prevCartItems.filter(item => item.item_id !== item_id));
-        console.log(response.data.message);
       }
     } catch (error) {
       console.error('Error deleting item from cart:', error);

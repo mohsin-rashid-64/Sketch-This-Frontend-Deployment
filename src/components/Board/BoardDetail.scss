@@ -234,6 +234,7 @@
     .imageWrapper {
       margin-bottom: 20px;
       display: grid;
+      gap: 10px;
       grid-template-columns: repeat(2, 1fr);
       width: 100%;
       background-color: #FFF;
@@ -267,6 +268,9 @@
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       grid-gap: 10px;
+    }
+    .image1{
+      border-radius: 50px;
     }
 @media screen and (max-width:768px) {
   .grid-container {

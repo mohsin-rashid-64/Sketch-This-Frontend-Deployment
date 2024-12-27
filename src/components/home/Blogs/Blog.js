@@ -210,8 +210,7 @@ function Blog() {
         try {
             const response = await axios.get(`${process.env.REACT_APP_API_URL}/get_products_all/`);  // Adjust the URL based on your API endpoint
             setBlogs(response.data);
-            console.log('hello',setBlogs)
-            console.log('hahaha',response.data)
+
         } catch (error) {
             console.error("Error fetching blogs:", error);
         }

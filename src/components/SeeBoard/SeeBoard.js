@@ -31,7 +31,6 @@ function SeeBoard() {
                     page_size: pageSize
                 }
             });
-            console.log("RESPONSE DATA",response)
             if (response.data.length < pageSize) {
                 setAllBoardsLoaded(true);
             }

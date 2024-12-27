@@ -49,7 +49,6 @@ function EditProfile() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log('handle Submit', formData);
         localStorage.setItem('editProfileData', JSON.stringify(formData));
         navigate('/account-management');
     };

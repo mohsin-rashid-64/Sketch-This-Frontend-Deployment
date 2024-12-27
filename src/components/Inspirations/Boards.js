@@ -20,6 +20,7 @@ function Boards() {
     useEffect(() => {
         AOS.init();
 
+
         const fetchBoards = async () => {
             try {
                 const response = await axios.get(`${process.env.REACT_APP_API_URL}/get_products_all/`, {
@@ -52,6 +53,9 @@ function Boards() {
             description: board.description,
             title: board.title,
             hex_code: board.hex_code,
+            width: board.width,
+            height: board.height,
+            generated_title:board.generated_title
         };
         navigate('/UserBoard', { state: { userBoard: userBoard } });
     };

@@ -42,8 +42,7 @@ function AccountManagement() {
                 ...editProfileData
             }));
         }
-        console.log('Edit Profile Data:', editProfileData);
-        console.log('Account Management Data:', accountData);
+
     }, []);
 
     const handleInputChange = (e) => {
@@ -69,7 +68,7 @@ function AccountManagement() {
                 combinedData,
                 config
             );
-            console.log(response.data);
+ 
             alert("Your profile is updated");
             navigate('/');
         } catch (error) {

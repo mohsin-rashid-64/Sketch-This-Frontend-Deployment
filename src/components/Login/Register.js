@@ -386,7 +386,6 @@ function Register({ show, handleClose, openLoginModal }) {
   
     try {
       const signUpStatus = await signUpWithEmail(email, password);
-      console.log("signUpStatus", signUpStatus);
   
       const response = await axios.post(
         `${process.env.REACT_APP_API_URL}/sign_up`,
@@ -398,7 +397,6 @@ function Register({ show, handleClose, openLoginModal }) {
         }
       );
   
-      console.log("Registration response:", response);
   
       alert("User registered successfully");
       setFirstName("");

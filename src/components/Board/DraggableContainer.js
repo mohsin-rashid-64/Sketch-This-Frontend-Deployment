@@ -1,9 +1,8 @@
-
 import React, { useState, useRef, useEffect } from "react";
 import "./RoomDesigner.scss"; // Import the SCSS file
 
 const RoomDesigner = ({ userBoard }) => {
-  console.log("userBoard from draggable", userBoard);
+
 
   // Parse dimensions dynamically from userBoard
   const backgroundWidths = userBoard.width.split(",").map(Number);
@@ -251,13 +250,12 @@ const RoomDesigner = ({ userBoard }) => {
                 }}
               >
                 <div>
-                <div>
-  {`${
-    item.name.split(" ")[0].charAt(0).toUpperCase() + 
-    item.name.split(" ")[0].slice(1)
-  }: ${item.width} x ${item.length}`}
-</div>
-
+                  <div>
+                    {`${
+                      item.name.split(" ")[0].charAt(0).toUpperCase() +
+                      item.name.split(" ")[0].slice(1)
+                    }: ${item.width} x ${item.length}`}
+                  </div>
                 </div>
                 <div>
                   <span
@@ -313,7 +311,7 @@ const RoomDesigner = ({ userBoard }) => {
               height: `${roomLength * ratio}px`,
               border: "12px solid #b2bebf",
               position: "relative",
-              backgroundColor: "#d1a36b",
+              backgroundColor: "rgb(219, 222, 223)",
               marginRight: "30px",
               overflow: "auto", // Allow scrolling in the room area
             }}
@@ -322,39 +320,34 @@ const RoomDesigner = ({ userBoard }) => {
             onMouseUp={handleMouseUp}
             onTouchEnd={handleTouchEnd} // Add touch end handler
           >
-            {furniture.map((item, index) => (
-              <div>
-                <div
-                  key={item.name}
-                  className={item.name}
-                  style={{
-                    touchAction: "none",
-                    width: item.width * ratio,
-                    height: item.length * ratio,
-                    top: item.position.y,
-                    left: item.position.x,
-                    position: "absolute",
-                    transform: `rotate(${item.rotation}deg)`,
-                    transformOrigin: "center center",
-                    backgroundColor: "#5e3b3b",
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    cursor: "move",
-                    color: "white",
-                  }}
-                  onMouseDown={(event) => handleMouseDown(event, index)}
-                  onTouchStart={(event) => handleTouchStart(event, index)} // Add touch event handler
-                >
-                 <div>
-                 {item.name.split(" ")[0]}
-</div>
-
-             
-                </div>
-              </div>
-            ))}
-          </div>
+              {furniture.map((item, index) => (
+                  <div
+                    key={item.name}
+                    className={item.name}
+                    style={{
+                      touchAction: "none",
+                      width: item.width * ratio,
+                      height: item.length * ratio,
+                      top: item.position.y,
+                      left: item.position.x,
+                      position: "absolute",
+                      transform: `rotate(${item.rotation}deg)`,
+                      transformOrigin: "center center",
+                      backgroundColor: "white",
+                      color: "gray",
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      cursor: "move",
+                      border: "solid 2px darkGray",
+                    }}
+                    onMouseDown={(event) => handleMouseDown(event, index)}
+                    onTouchStart={(event) => handleTouchStart(event, index)} // Add touch event handler
+                  >
+                    <div>{item.name.split(" ")[0]}</div>
+                  </div>
+              ))}
+            </div>
         </div>
       )}
     </div>

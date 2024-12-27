@@ -28,14 +28,12 @@ const ImageBlock = ({ imageUrl, altText }) => {
 function AllBoard() {
     const location = useLocation();
     const { selectedProducts } = location.state || {};
-    console.log("description",selectedProducts)
     const { imageUrl, style, background_removed_images, description } = location.state || {};
     const navigate = useNavigate();
     localStorage.setItem("selectedProducts",selectedProducts)
     localStorage.setItem("selectedProducts", JSON.stringify(selectedProducts));
     localStorage.setItem("background_removed_images",background_removed_images)
     localStorage.setItem("description",JSON.stringify(description))
-    // console.log("")
     localStorage.setItem("imageUrl",JSON.stringify(imageUrl))
     
 
@@ -43,8 +41,7 @@ function AllBoard() {
     const [colors, setColors] = useState([]);
 
     useEffect(() => {
-        console.log("this is style",style)
-        console.log("background_removed_images",background_removed_images)
+
 
         if (background_removed_images && background_removed_images.length > 0) {
             setImages(background_removed_images.map((base64Image, index) => ({
@@ -62,9 +59,7 @@ function AllBoard() {
                 item.Hex_Code.split(', ').map(code => code.trim())
             );
             const uniqueColors = [...new Set(newHexCode)]; // Remove duplicates
-            console.log("Formatted Hex Codes:", uniqueColors);
             setColors(uniqueColors);
-            console.log("unique colors",uniqueColors)
         }
     }, [selectedProducts]);
 
