@@ -1,9 +1,8 @@
-import React, { useEffect, useState, useCallback } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import AOS from 'aos';
 import './SeeBoard.scss';
-import axios from 'axios';
-import { height, width } from '@mui/system';
+import { useRead } from '../../hooks/useRead';
 
 const tabs = [
     { id: 'my-space', title: 'My Space' },
@@ -19,37 +18,32 @@ function SeeBoard() {
     const [allBoardsLoaded, setAllBoardsLoaded] = useState(false);
     const navigate = useNavigate();
 
-    const fetchData = useCallback(async () => {
-        try {
-            const response = await axios.get(`${process.env.REACT_APP_API_URL}/get_products_by_email/`, {
-                headers: {
-                    'Authorization': `Bearer ${localStorage.getItem("jwt")}`,
-                    "Content-Type": "application/json",
-                },
-                params: {
-                    page: page,
-                    page_size: pageSize
-                }
-            });
-            if (response.data.length < pageSize) {
+    // Using useRead hook to fetch data
+    const { response,fetchData } = useRead('get_products_by_email/');
+
+    useEffect(() => {
+        const payload={
+            page: page,
+            page_size: pageSize
+        }
+        fetchData(payload);
+        
+    }, [page,pageSize]);
+
+    useEffect(() => {
+        if (response) {
+            if (response.length < pageSize) {
                 setAllBoardsLoaded(true);
             }
-
             // Update the state only if new data is different to avoid duplicates
             setMySpaceCards(prevCards => {
-                const newCards = response.data.filter(card => 
+                const newCards = response.filter(card => 
                     !prevCards.some(prevCard => prevCard.id === card.id)
                 );
                 return [...prevCards, ...newCards];
             });
-        } catch (error) {
-            console.error('Error fetching products', error);
         }
-    }, [page, pageSize]);
-
-    useEffect(() => {
-        fetchData();
-    }, [page, fetchData]);
+    }, [response, pageSize]);
 
     const toBoards = useCallback((board) => {
         const userBoard = {
@@ -60,60 +54,53 @@ function SeeBoard() {
             hex_code: board.hex_code,
             width: board.width,
             height: board.height,
-            generated_title:board.generated_title
-            
+            generated_title: board.generated_title
         };
         navigate('/UserBoard', { state: { userBoard: userBoard } });
-
-    }, [navigate]);  // Memoize with useCallback to avoid multiple executions
+    }, [navigate]);
 
     useEffect(() => {
         AOS.init();
-    }, []);
+    });
 
     const loadMoreBoards = () => {
         if (!allBoardsLoaded) {
-            setPage(prevPage => prevPage + 1);
+            setPage(prevPage => prevPage + 1); // Load the next page
         }
     };
 
     const renderCards = (cards) => (
-      <div className="row">
-        {cards.map((card) => (
-          <div className="col-lg-3 col-md-4 " key={card.id}>
-            <div className="card product-title" data-aos="fade-down" data-aos-duration="1000">
-              <div className="head">
-                <img
-                  src={`data:image/png;base64,${card.image_url.replace(
-                    /"/g,
-                    ""
-                  )}`}
-                  className="blogImg"
-                  alt="blogImg"
-                />
-                <div className="date">
-                  <p>
-                    <img src="/images/date.svg" alt="date" />
-                    {card.date}
-                  </p>
+        <div className="row">
+            {cards.map((card) => (
+                <div className="col-lg-3 col-md-4 " key={card.id}>
+                    <div className="card product-title" data-aos="fade-down" data-aos-duration="1000">
+                        <div className="head">
+                            <img
+                                src={`data:image/png;base64,${card.image_url.replace(/"/g, "")}`}
+                                className="blogImg"
+                                alt="blogImg"
+                            />
+                            <div className="date">
+                                <p>
+                                    <img src="/images/date.svg" alt="date" />
+                                    {card.date}
+                                </p>
+                            </div>
+                        </div>
+                        <div className="content">
+                            <h3>{card.generated_title}</h3>
+                            <button onClick={() => toBoards(card)} className="readMore">
+                                See Board <img src="/images/read.svg" alt="readImg" />
+                            </button>
+                        </div>
+                    </div>
                 </div>
-              </div>
-              <div className="content">
-                <h3 >
-                  {card.generated_title}
-                </h3>
-                <button onClick={() => toBoards(card)} className="readMore">
-                  See Board <img src="/images/read.svg" alt="readImg" />
-                </button>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
+            ))}
+        </div>
     );
 
     return (
-        <React.Fragment>
+        <>
             <div className="seeBoard">
                 <div className="container">
                     <div className="title" data-aos="fade-up" data-aos-duration="1000">
@@ -123,7 +110,11 @@ function SeeBoard() {
                     </div>
                     <div className="tab-buttons" data-aos="fade-down" data-aos-duration="1000">
                         {tabs.map(tab => (
-                            <button key={tab.id} onClick={() => setSelectedTab(tab.id)} className={selectedTab === tab.id ? 'active' : ''}>
+                            <button
+                                key={tab.id}
+                                onClick={() => setSelectedTab(tab.id)}
+                                className={selectedTab === tab.id ? 'active' : ''}
+                            >
                                 {tab.title}
                             </button>
                         ))}
@@ -139,12 +130,18 @@ function SeeBoard() {
                                 Load More <img src="/images/arrowRight.svg" alt="arrowRight" />
                             </button>   
                         )}
-                        
                     </div>
                 </div>
             </div>
-        </React.Fragment>
+        </>
     );
 }
 
 export default SeeBoard;
+
+
+
+
+
+
+

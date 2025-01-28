@@ -1,4 +1,4 @@
-import React,{useEffect , useState} from 'react'
+import {useEffect , useState} from 'react'
 import './Footer.scss'
 import { Link } from 'react-router-dom'
 import AOS from 'aos';
@@ -12,7 +12,7 @@ function Footer() {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
   return (
-    <React.Fragment>
+    <>
       <div className="footer">
         <div className="container">
             <div className="row">
@@ -101,7 +101,7 @@ function Footer() {
           </form>
         </Modal.Body>
       </Modal>
-    </React.Fragment>
+    </>
   )
 }
 

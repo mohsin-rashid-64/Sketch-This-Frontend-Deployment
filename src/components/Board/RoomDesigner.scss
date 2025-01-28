@@ -1,11 +1,33 @@
 .room-designer {
   overflow: hidden;
   .back-button {
-    background-color: wheat;
+    font-size: 16px;
+    font-weight: 500;
+    background: linear-gradient(285deg, #0B5B4C 0, #2B9F97 95%);
+    color: white;
+    margin-right: 20px;
+    width: 100px;
+    height: 53px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100px;
+    transition: all 0.4s;
   }
 
   .next-button {
-    background-color: wheat;
+    font-size: 16px;
+    font-weight: 500;
+    background: linear-gradient(285deg, #0B5B4C 0, #2B9F97 95%);
+    color: white;
+    margin-left: 20px;
+    width: 100px;
+    height: 53px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100px;
+    transition: all 0.4s;
   }
 
   .dimension-display {
@@ -86,10 +108,13 @@
     position: relative;
     background-color: #eee;
     // border: 12px solid #b2bebf;
-    margin-top: 40px;  
+    // margin-top: 40px;  
     margin-bottom: 40px;
+   
     width: 90%; // Full width on small screens
-    margin-left: 5%;
+    
+    
+  
     @media (min-width: 768px) {
       margin-left: 30%;
     }

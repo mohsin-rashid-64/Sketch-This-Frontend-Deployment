@@ -1,16 +1,20 @@
 import React, { useState, useRef, useEffect } from "react";
 import "./RoomDesigner.scss"; // Import the SCSS file
+import Rect from "../../assets/images/rooms/rect.png";
+import LS from "../../assets/images/rooms/l-shape.png";
+import Cut from "../../assets/images/rooms/cut.png";
+import TS from "../../assets/images/rooms/t-shape.png";
+import US from "../../assets/images/rooms/u-shape.png";
+import Bevel from "../../assets/images/rooms/bevel.png";
 
 const RoomDesigner = ({ userBoard }) => {
-
-
   // Parse dimensions dynamically from userBoard
   const backgroundWidths = userBoard.width.split(",").map(Number);
   const backgroundHeights = userBoard.height.split(",").map(Number);
   const titles = userBoard.title.split(",").map((title) => title.trim());
 
-  const [roomWidth, setRoomWidth] = useState(100);
-  const [roomLength, setRoomLength] = useState(100);
+  const [roomWidth, setRoomWidth] = useState(200);
+  const [roomLength, setRoomLength] = useState(200);
 
   // Dynamically initialize furniture based on dimensions from userBoard
   const [furniture, setFurniture] = useState(
@@ -63,6 +67,52 @@ const RoomDesigner = ({ userBoard }) => {
     setOffset({ x, y });
     setIsDragging(true);
   };
+  const rooms = [
+    {
+      id: 1,
+      name: "rectangular",
+      image: Rect,
+      shape: "polygon(0 0, 100% 0%, 100% 100%, 0% 100%)",
+       outerShap:"polygon(0 0, 100% 0%, 100% 100%, 0% 100%)"
+    },
+    {
+      id: 2,
+      name: "l-shaped",
+      image: LS,
+      shape: "polygon(50% 0, 100% 0, 100% 100%, 0 100%, 0 50%, 50% 50%)",
+       outerShap:"polygon(0 47%, 47% 47%, 47% 0, 100% 0, 100% 100%, 0 99%)"
+    },
+    {
+      id: 3,
+      name: "cut",
+      image: Cut,
+      shape: "polygon(75% 0, 100% 25%, 100% 100%, 0 100%, 0 0)",
+       outerShap:"polygon(75% 0, 100% 25%, 100% 100%, 0 100%, 0 0)"
+    },
+    {
+      id: 4,
+      name: "t-shaped",
+      image: TS,
+      shape:
+        "polygon(0 0, 100% 0, 100% 75%, 70% 75%, 70% 100%, 30% 100%, 30% 75%, 0 75%)",
+         outerShap:"polygon(0 0, 100% 0, 100% 76%, 72% 76%, 72% 100%, 28% 100%, 28% 76%, 0 76%)"
+    },
+    {
+      id: 5,
+      name: "u-shaped",
+      image: US,
+      shape:
+        "polygon(33% 25%, 67% 25%, 67% 0, 100% 0, 100% 100%, 0 100%, 0 0, 33% 0)",
+        outerShap:"polygon(37% 0, 37% 23%, 63% 23%, 63% 0, 100% 0, 100% 100%, 0 99%, 0 0)"
+    },
+    {
+      id: 6,
+      name: "beveled",
+      image: Bevel,
+      shape: "polygon(25% 0, 75% 0, 100% 25%, 100% 100%, 0 100%, 0 25%)",
+       outerShap:"polygon(25% 0, 75% 0, 100% 25%, 100% 100%, 0 100%, 0 25%)"
+    },
+  ];
 
   const handleTouchStart = (event, index) => {
     event.preventDefault(); // Prevent default touch behavior (like scrolling)
@@ -174,6 +224,7 @@ const RoomDesigner = ({ userBoard }) => {
     );
   };
 
+  const [selectedRoom, setSelectedRoom] = useState(rooms[0]);
   // Start rotating right continuously
   const startRotateRight = (index) => {
     rotateFurniture(index, "right");
@@ -184,19 +235,25 @@ const RoomDesigner = ({ userBoard }) => {
   };
 
   return (
-    <div className="room-designer">
-      <div className="top-bar">
+    <div className="room-designer"
+    >
+      <div className="top-bar"
+       style={{display:"flex", alignItems:"center", justifyContent:"space-between"}}
+      >
         <h2 className="title">Room Designer</h2>
 
         {step === 1 && (
-          <div className="input-group">
-            <div className="input-field">
+          <div className="input-group"
+          style={{width:"100%", display:"flex", justifyContent:"flex-end",alignItems:"center" }}>
+        <div style={{display:"flex", alignItems:"center"}}>
+          
+        <div className="input-field">
               <label>Room Width:</label>
               <input
                 type="text"
                 value={roomWidth}
                 onChange={(event) => handleInputChange(event, setRoomWidth)}
-                style={{ width: "60px" }}
+                style={{ width: "100px", marginLeft:"10px", marginRight:"20px" }}
               />
             </div>
             <div className="input-field">
@@ -205,12 +262,13 @@ const RoomDesigner = ({ userBoard }) => {
                 type="text"
                 value={roomLength}
                 onChange={(event) => handleInputChange(event, setRoomLength)}
-                style={{ width: "60px" }}
+                style={{ width: "100px",marginLeft:"10px" }}
               />
             </div>
             <button className="next-button" onClick={handleNextClick}>
               Next
             </button>
+        </div>
           </div>
         )}
 
@@ -305,49 +363,87 @@ const RoomDesigner = ({ userBoard }) => {
 
           <div
             className="room-area"
-            ref={roomAreaRef}
             style={{
               width: `${roomWidth * ratio}px`,
               height: `${roomLength * ratio}px`,
-              border: "12px solid #b2bebf",
+              // border: "12px solid #b2bebf",
               position: "relative",
-              backgroundColor: "rgb(219, 222, 223)",
+              backgroundColor: "#b2bebf",
               marginRight: "30px",
-              overflow: "auto", // Allow scrolling in the room area
+              // overflow: "auto", // Allow scrolling in the room area
+              clipPath: selectedRoom.outerShap,
+              padding: "15px",
             }}
-            onMouseMove={handleMouseMove}
-            onTouchMove={handleTouchMove} // Add touch move handler
-            onMouseUp={handleMouseUp}
-            onTouchEnd={handleTouchEnd} // Add touch end handler
           >
+            <div
+              // className="room-area"
+              ref={roomAreaRef}
+              style={{
+                width: "100%",
+                height: "100%",
+                // border: "12px solid #b2bebf",
+                position: "relative",
+                backgroundColor: "rgb(219, 222, 223)",
+                // marginRight: "70px",
+                // overflow: "auto", // Allow scrolling in the room area
+                clipPath: selectedRoom.shape,
+              }}
+              onMouseMove={handleMouseMove}
+              onTouchMove={handleTouchMove} // Add touch move handler
+              onMouseUp={handleMouseUp}
+              onTouchEnd={handleTouchEnd} // Add touch end handler
+            >
               {furniture.map((item, index) => (
-                  <div
-                    key={item.name}
-                    className={item.name}
-                    style={{
-                      touchAction: "none",
-                      width: item.width * ratio,
-                      height: item.length * ratio,
-                      top: item.position.y,
-                      left: item.position.x,
-                      position: "absolute",
-                      transform: `rotate(${item.rotation}deg)`,
-                      transformOrigin: "center center",
-                      backgroundColor: "white",
-                      color: "gray",
-                      display: "flex",
-                      justifyContent: "center",
-                      alignItems: "center",
-                      cursor: "move",
-                      border: "solid 2px darkGray",
-                    }}
-                    onMouseDown={(event) => handleMouseDown(event, index)}
-                    onTouchStart={(event) => handleTouchStart(event, index)} // Add touch event handler
-                  >
-                    <div>{item.name.split(" ")[0]}</div>
-                  </div>
+                <div
+                  key={item.name}
+                  className={item.name}
+                  style={{
+                    touchAction: "none",
+                    width: item.width * ratio,
+                    height: item.length * ratio,
+                    top: item.position.y,
+                    left: item.position.x,
+                    position: "absolute",
+                    transform: `rotate(${item.rotation}deg)`,
+                    transformOrigin: "center center",
+                    backgroundColor: "white",
+                    color: "gray",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    cursor: "move",
+                    border: "solid 2px darkGray",
+                  }}
+                  onMouseDown={(event) => handleMouseDown(event, index)}
+                  onTouchStart={(event) => handleTouchStart(event, index)} // Add touch event handler
+                >
+                  <div>{item.name.split(" ")[0]}</div>
+                </div>
               ))}
             </div>
+          </div>
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(2, 1fr)",
+              gap: "10px",
+            }}
+          >
+            {rooms.map((room) => (
+              <img
+                onClick={() => setSelectedRoom(room)}
+                key={room.id}
+                src={room.image}
+                alt="room"
+                style={{
+                  width: "50px",
+                  height: "50px",
+                  aspectRatio: "1/1",
+                  cursor: "pointer",
+                }}
+              />
+            ))}
+          </div>
         </div>
       )}
     </div>

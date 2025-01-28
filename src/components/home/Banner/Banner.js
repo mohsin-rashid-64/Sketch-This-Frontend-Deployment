@@ -1,4 +1,4 @@
-import React,{useEffect} from 'react'
+import {useEffect} from 'react'
 import './Banner.scss'
 import { Link } from 'react-router-dom'
 import Slider from './Slider/Slider'
@@ -9,7 +9,7 @@ function Banner() {
     AOS.init();
 }, [])
   return (
-    <React.Fragment>
+    
     <div className="banner">
     <div className='container'>
       <div className="row">
@@ -35,7 +35,7 @@ function Banner() {
       </div>
       </div>
     </div>
-    </React.Fragment>
+    
   )
 }
 

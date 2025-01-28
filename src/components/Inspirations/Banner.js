@@ -1,11 +1,11 @@
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import AOS from 'aos';
 function Banner() {
   useEffect(() => {
     AOS.init();
 }, [])
   return (
-    <React.Fragment>
+    <>
       <div className="inspirationBanner">
         <div className="container">
             <div className="row">
@@ -21,7 +21,7 @@ function Banner() {
             </div>
         </div>
       </div>
-    </React.Fragment>
+    </>
   )
 }
 

@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 import Navbar from '../navbar/Navbar';
 import Banner from './Banner/Banner';
 import ChooseUs from './ChooseUs/ChooseUs';
@@ -9,7 +9,6 @@ import Footer from '../footer/Footer';
 import Products from './Products/Products';
 import Steps from './Steps/Steps';
 
-import axios from 'axios';
 
 function Home() {
   const productsRef = useRef(null);  // Create a ref for the Products section
@@ -22,7 +21,7 @@ function Home() {
   };
 
   return (
-    <React.Fragment>
+    <>
       <Navbar />
       <Banner />
       <ChooseUs />
@@ -32,7 +31,7 @@ function Home() {
       <Blogs />
       <Membership />
       <Footer />
-    </React.Fragment>
+    </>
   );
 }
 

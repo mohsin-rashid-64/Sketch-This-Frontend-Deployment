@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import './Steps.scss';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -48,7 +48,6 @@ function Steps() {
                         className={`option ${selectedOption === option ? 'selected' : ''}`}
                         onClick={() => onOptionSelect(option)}
                     >
-                        {/* {selectedOption === option ? <span className="checkmark">✓</span> : null} */}
                         {option}
                     </div>
                 ))}
@@ -76,7 +75,7 @@ function Steps() {
     };
 
     return (
-        <React.Fragment>
+        <>
             <Navbar />
             <div className="Steps">
                 <div className="container">
@@ -126,7 +125,7 @@ function Steps() {
                     </div>
                 </div>
             </div>
-        </React.Fragment>
+        </>
     );
 }
 

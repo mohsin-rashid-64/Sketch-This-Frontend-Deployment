@@ -1,372 +1,178 @@
-
-
-
-
-
-
-// .boardAccordion2 {
-//     .accordion-item2 {
-//         margin-bottom: 30px;
-//         border: 0;
-//         background-color: #f1f2f2;
-//         padding: 20px;
-//         border-radius: 32px;
-//         width: 100%;
-
-//         .accordion-header {
-//             .header-title {
-//                 background-color: #fff;
-//                 padding: 10px;
-//                 border-radius: 32px;
-//                 box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-//                 margin-bottom: 20px;
-
-//                 table {
-//                     width: 100%;
-
-//                     .w-5 {
-//                         width: 5%;
-//                     }
-//                     .w-65 {
-//                         width: 65%;
-//                     }
-//                     .w-15 {
-//                         width: 15%;
-//                     }
-
-//                     thead {
-//                         width: 100%;
-
-//                         tr {
-//                             display: flex;
-//                             justify-content: space-between;
-//                             width: 100%;
-
-//                             th {
-//                                 font-size: 13px;
-//                                 color: #000;
-//                                 font-weight: 700;
-//                                 font-family: 'DM Sans';
-//                                 text-align: left;
-//                                 padding: 10px;
-//                             }
-//                         }
-//                     }
-//                 }
-//             }
-//         }
-
-//         .table-responsive {
-//             width: 100%;
-//             border-collapse: collapse;
-        
-//             th, td {
-//                 text-align: left;
-//                 padding: 10px;
-//             }
-        
-//             th.w-5, td.w-5 {
-//                 width: 5%;
-//             }
-//             th.w-65, td.w-65 {
-//                 width: 65%;
-//             }
-//             th.w-15, td.w-15 {
-//                 width: 15%;
-//             }
-//         }
-        
-//     }
-
-//     .buttons {
-//         display: flex;
-//         justify-content: space-between;
-//         margin-top: 30px;
-
-//         .generate-image-btn, .save-button {
-//             font-weight: 700;
-//             padding: 10px 20px;
-//             border-radius: 32px;
-//             border: 1px solid #2b9f97;
-//             background: #2b9f97;
-//             color: #fff;
-//             cursor: pointer;
-
-//             &:hover {
-//                 background: #1f8c7e;
-//             }
-//         }
-//     }
-
-//     .generated-image {
-//         margin-top: 40px;
-//         display: flex;
-//         justify-content: center;
-//         align-items: center;
-
-//         img {
-//             max-width: 100%;
-//             height: auto;
-//         }
-//     }
-// }
-
-
-
-
-
 .boardAccordion2 {
-    .accordion-item2 {
-        margin-bottom: 30px;
-        border: 0;
-        background-color: #f1f2f2;
-        padding: 20px;
+  .accordion-item2 {
+    margin-bottom: 30px;
+    border: 0;
+    background-color: #f1f2f2;
+    padding: 20px;
+    border-radius: 32px;
+    width: 100%;
+
+    .accordion-header {
+      .header-title {
+        background-color: #fff;
+        padding: 10px;
         border-radius: 32px;
-        width: 100%;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
 
-        .accordion-header {
-            .header-title {
-                background-color: #fff;
-                padding: 10px;
-                border-radius: 32px;
-                box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-                margin-bottom: 20px;
+        table {
+          width: 100%;
+          border-collapse: collapse;
 
-                table {
-                    width: 100%;
-                    border-collapse: collapse;
-
-                    thead {
-                        width: 100%;
-
-                        tr {
-                            display: table;
-                            table-layout: fixed;
-                            width: 100%;
-
-                            th {
-                                font-size: 13px;
-                                color: #000;
-                                font-weight: 700;
-                                font-family: 'DM Sans';
-                                text-align: left;
-                                padding: 10px;
-                            }
-                            
-                            th:nth-child(1) { width: 10%; }  /* No */
-                            th:nth-child(2) { width: 50%; }  /* Description */
-                            th:nth-child(3) { width: 20%; }  /* Price */
-                            th:nth-child(4) { width: 20%; }  /* Amount */
-                        }
-                    }
-                }
-            }
-        }
-
-
-
-
-        // -------------------------------------------
-        .accordion-header-calculate {
-            .header-title-calculate {
-                background-color: #fff;
-                padding: 10px;
-                border-radius: 32px;
-                box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-                margin-bottom: 20px;
-
-                table {
-                    width: 100%;
-                    border-collapse: collapse;
-
-                    thead {
-                        width: 100%;
-
-                        tr {
-                            display: table;
-                            table-layout: fixed;
-                            width: 100%;
-
-                            th {
-                                font-size: 13px;
-                                color: #000;
-                                font-weight: 700;
-                                font-family: 'DM Sans';
-                                text-align: left;
-                                padding: 10px;
-                            }
-                            
-                            th:nth-child(1) { width: 60%; }  /* No */
-                            // th:nth-child(2) { width: 50%; }  /* Description */
-                            th:nth-child(2) { width: 20%; }  /* Price */
-                            th:nth-child(3) { width: 20%; }  /* Amount */
-                        }
-                    }
-                }
-            }
-        }
-        // =============================================
-
-        .table-responsive {
+          thead {
             width: 100%;
-            border-collapse: collapse;
-
-            th, td {
-                text-align: left;
-                padding: 10px;
-            }
 
             tr {
-                display: table;
-                table-layout: fixed;
-                width: 100%;
+              display: table;
+              table-layout: fixed;
+              width: 100%;
+
+              th {
+                font-size: 13px;
+                color: #000;
+                font-weight: 700;
+                font-family: "DM Sans";
+                text-align: left;
+                padding: 10px;
+              }
+
+              th:nth-child(1) {
+                width: 10%;
+              } /* No */
+              th:nth-child(2) {
+                width: 50%;
+              } /* Description */
+              th:nth-child(3) {
+                width: 20%;
+              } /* Price */
+              th:nth-child(4) {
+                width: 20%;
+              } /* Amount */
             }
-            
-            th:nth-child(1), td:nth-child(1) { width: 10%; }  /* No */
-            th:nth-child(2), td:nth-child(2) { width: 50%; }  /* Description */
-            th:nth-child(3), td:nth-child(3) { width: 20%; }  /* Price */
-            th:nth-child(4), td:nth-child(4) { width: 20%; }  /* Amount */
+          }
         }
+      }
     }
 
-    
-    .buttons {
-        display: flex;
-        justify-content: space-between;
-        margin-top: 30px;
+    .accordion-header-calculate {
+      .header-title-calculate {
+        background-color: #fff;
+        padding: 10px;
+        border-radius: 32px;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
 
-        .generate-image-btn, .save-button {
-            font-weight: 700;
-            padding: 10px 20px;
-            border-radius: 32px;
-            border: 1px solid #2b9f97;
-            background: #2b9f97;
-            color: #fff;
-            cursor: pointer;
+        table {
+          width: 100%;
+          border-collapse: collapse;
 
-            &:hover {
-                background: #1f8c7e;
+          thead {
+            width: 100%;
+
+            tr {
+              display: table;
+              table-layout: fixed;
+              width: 100%;
+
+              th {
+                font-size: 13px;
+                color: #000;
+                font-weight: 700;
+                font-family: "DM Sans";
+                text-align: left;
+                padding: 10px;
+              }
+
+              th:nth-child(1) {
+                width: 60%;
+              } /* No */
+              // th:nth-child(2) { width: 50%; }  /* Description */
+              th:nth-child(2) {
+                width: 20%;
+              } /* Price */
+              th:nth-child(3) {
+                width: 20%;
+              } /* Amount */
             }
+          }
         }
+      }
     }
 
-    .generated-image {
-        margin-top: 40px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+    .table-responsive {
+      width: 100%;
+      border-collapse: collapse;
 
-        img {
-            max-width: 100%;
-            height: auto;
-        }
+      th,
+      td {
+        text-align: left;
+        padding: 10px;
+      }
+
+      tr {
+        display: table;
+        table-layout: fixed;
+        width: 100%;
+      }
+
+      th:nth-child(1),
+      td:nth-child(1) {
+        width: 10%;
+      } /* No */
+      th:nth-child(2),
+      td:nth-child(2) {
+        width: 50%;
+      } /* Description */
+      th:nth-child(3),
+      td:nth-child(3) {
+        width: 20%;
+      } /* Price */
+      th:nth-child(4),
+      td:nth-child(4) {
+        width: 20%;
+      } /* Amount */
     }
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+  
+    .generate-image-btn,
+    .save-button {
+      font-weight: 700;
+      padding: 10px 20px;
+      border-radius: 32px;
+      border: 1px solid #2b9f97;
+      background: #2b9f97;
+      color: #fff;
+      cursor: pointer;
+      transition: background 0.3s ease, color 0.3s ease;
+  
+      &:hover {
+        background: #1f8c7e;
+      }
+  
+      &:disabled {
+        background: #d6d6d6; /* Dull background color */
+        color: #888888; /* Light text color */
+        border-color: #d6d6d6; /* Match border with background */
+        cursor: not-allowed; /* Show not-allowed cursor */
+      }
+    }
+  }
+  
+
+  .generated-image {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+  }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

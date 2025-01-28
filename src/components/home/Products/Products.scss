@@ -106,9 +106,34 @@
         padding: 10px;
         margin-bottom: 20px;
         border: 1px solid #0000001f;
+        cursor:pointer;
+        &:hover {
+            h4{
+             color: red; /* Optional: Change the color on hover */
+             white-space: normal; /* Allow the text to wrap */
+             overflow: visible;   /* Show full text */
+             text-overflow: clip; /* Disable ellipsis on hover */
+            }
+         }
+         h4 {
+            font-size: 16px;
+            color: #051312;
+            margin-bottom: 10px;
+            white-space: nowrap; /* Keep text in one line */
+            overflow: hidden; /* Hide any overflow */
+            text-overflow: ellipsis; /* Add the ellipsis (...) */
+            width: 100%; /* Ensure it takes full width of container */
+            display: inline-block; /* Make sure ellipsis works by ensuring block display */
+            cursor:pointer; /* Change cursor to indicate hoverability */
+            transition: color 0.3s; /* Smooth transition for color change */
+           
+          
+        }
 
         .head {
-            position: relative;
+            position: relative; 
+            -webkit-box-orient: vertical;
+            text-overflow: ellipsis;
             margin-bottom: 15px;
 
             .blogImg {
@@ -149,16 +174,28 @@
         .content {
             padding: 0 10px 10px;
 
-            h3 {
+            @mixin line-clamp($lines) {
+                overflow: hidden;
+                display: -webkit-box;
+                -webkit-line-clamp: $lines;
+                -webkit-box-orient: vertical;
+                text-overflow: ellipsis;
+
+            }
+            
+            h4 {
                 font-size: 24px;
                 color: #051312;
                 margin-bottom: 10px;
+                
+                @include line-clamp(5);
             }
 
             p {
                 font-size: 15px;
                 color: #05131272;
-                margin-bottom: 20px;
+                margin-bottom: 10px;
+                @include line-clamp(1);
             }
 
             .readMore {
@@ -184,73 +221,59 @@
    
 
     .load-more {
-        text-align: center; /* Center the button horizontally */
-        margin: 20px 0; /* Add margin around the button */
+        display: flex; /* Use flexbox to align the buttons */
+        justify-content: center; /* Center the buttons horizontally */
+        gap: 20px; /* Add space between the buttons */
+        margin-top: 20px; /* Add top margin for better positioning */
     }
     
-    .load-more button {
-        // margin-right: 140px;
+    .load-more-button {
         background-color: #2B9F97; /* Blue background color */
-        border: none; /* Remove default border */
-        color: white; /* White text color */
-        padding: 10px 20px; /* Padding inside the button */
-        font-size: 16px; /* Font size */
-        border-radius: 5px; /* Rounded corners */
-        cursor: pointer; /* Change cursor to pointer on hover */
-        transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transition effects */
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        font-size: 16px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.2s ease;
     }
     
-    .load-more button:hover {
-        background-color: #04664d; /* Darker blue on hover */
+    .load-more-button:hover {
+        background-color: #04664d;
     }
     
-    .load-more button:disabled {
-        background-color: #cccccc; /* Light gray background for disabled state */
-        cursor: not-allowed; /* Change cursor to indicate disabled state */
-    }
-
-    .cart-button {
-        text-align: center; /* Center the button horizontally */
-        margin: 20px 0; /* Add margin around the button */
-        // margin-left: 270px;
-        margin-top: -64px;
-        margin-left: 120px;
-
+    .load-more-button:disabled {
+        background-color: #cccccc;
+        cursor: not-allowed;
     }
     
-    .cart-button button {
-        background-color: #2B9F97; /* Blue background color */
-        border: none; /* Remove default border */
-        color: white; /* White text color */
-        padding: 10px 32px; /* Padding inside the button */
-        font-size: 16px; /* Font size */
-        border-radius: 5px; /* Rounded corners */
-        cursor: pointer; /* Change cursor to pointer on hover */
-        transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transition effects */
+    .cart-button-wrapper {
+        display: flex;
+        justify-content: center;
     }
     
-    .cart-button button:hover {
-        background-color: #0e4d02; /* Darker blue on hover */
+    .cart-button-select {
+        background-color: #2B9F97; 
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        font-size: 16px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.2s ease;
     }
     
-    .cart-button button:disabled {
-        background-color: #cccccc; /* Light gray background for disabled state */
-        cursor: not-allowed; /* Change cursor to indicate disabled state */
+    .cart-button-select:hover {
+        background-color: #0e4d02;
     }
+    
+    .cart-button-select:disabled {
+        background-color: #cccccc;
+        cursor: not-allowed;
+    }
+    
 
     
-    
-    // }
-
-
-
-
-    // .generate-btn {
-    //     display: flex;
-    //     justify-content: center;
-    //     margin-top: -45px;
-    //     margin-left: 270px;
-    //     // margin-bottom: 380px;
 
     .generate-btn {
             background-color: #2B9F97;

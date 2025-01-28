@@ -1,24 +1,25 @@
-import React, { useEffect, useState, useContext } from "react";
+import {useState, useContext } from "react";
 import { Modal } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 import "./Login.scss";
-import { Link } from "react-router-dom";
 import { signInWithPopup } from "firebase/auth";
 import { auth, GoogleProvider, signInWithEmail } from "../../firebase/config";
 import { AuthContext } from "../../Context/AuthContext.js";
 import { FaEye, FaEyeSlash } from "react-icons/fa"; // Import eye icons from react-icons
 import { fetchSignInMethodsForEmail } from "firebase/auth";
+import { useCreate } from "../../hooks/useCreate.js";
+
 
 function Login({ show, handleClose, openRegisterModal }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [formErrors, setFormErrors] = useState({});
   const [serverError, setServerError] = useState("");
-  const [loading, setLoading] = useState(false); // Add loading state
   const navigate = useNavigate();
   const { _auth, _setAuth } = useContext(AuthContext);
   const [passwordVisible, setPasswordVisible] = useState(false);
+  const { loading, error, create } = useCreate("auth/login");
+  
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -33,92 +34,47 @@ function Login({ show, handleClose, openRegisterModal }) {
     setServerError("");
   };
 
-  // const handleLogin = async (e) => {
-  //   e.preventDefault();
-  //   setLoading(true); // Set loading to true when the login process starts
-  //   try {
-  //     const signInStatus = await signInWithEmail(email, password);
-  //     const idToken = await signInStatus.getIdToken();
-
-  //     const response = await axios.post(
-  //       `${process.env.REACT_APP_API_URL}/login`,
-  //       { idToken },
-  //       {
-  //         headers: {
-  //           "Content-Type": "application/json",
-  //         },
-  //       }
-  //     );
-
-  //     if (response.status === 200) {
-  //       _setAuth(true);
-  //       handleClose();
-  //       if (!response.data.profile_completed) {
-  //         navigate('/seeBoard');
-  //       } else {
-  //         navigate('/seeBoard');
-  //       }
-  //       localStorage.setItem('jwt', response.data.token);
-  //     } else {
-  //       _setAuth(false);
-  //     }
-  //   } catch (error) {
-  //     console.error('Error logging in:', error);
-  //     setServerError('Error logging in');
-  //   } finally {
-  //     setLoading(false); // Set loading to false after the request completes
-  //   }
-  // };
-
   const handleLogin = async (e) => {
     e.preventDefault();
     setFormErrors({}); // Clear previous errors
     setServerError(""); // Clear server error
-  
+
     // Validate inputs
     const errors = {};
-  
+
     if (!email.trim()) {
       errors.email = "Email is required.";
     }
-  
+
     if (!password.trim()) {
       errors.password = "Password is required.";
     }
-  
+
     if (Object.keys(errors).length > 0) {
       setFormErrors(errors); // Set form errors if any
       return;
     }
-  
-    setLoading(true); // Show loading state while attempting login
-  
+
+   
+
     try {
       // Attempt to sign in with email and password
       const signInStatus = await signInWithEmail(email, password);
       const idToken = await signInStatus.getIdToken();
-  
-      const response = await axios.post(
-        `${process.env.REACT_APP_API_URL}/login`,
-        { idToken },
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
-  
-      if (response.status === 200) {
+      const payload = { idToken };
+      const response = await create(payload);
+
+      if (response.status_code === 201) {
         _setAuth(true);
         handleClose();
         navigate("/seeBoard");
-        localStorage.setItem("jwt", response.data.token);
+        localStorage.setItem("jwt", response.token);
       } else {
         setServerError("Email or password is incorrect.");
       }
     } catch (error) {
       console.error("Error logging in:", error);
-  
+
       // Map Firebase error codes to user-friendly messages
       const firebaseErrorMap = {
         "auth/user-not-found": "No account found with this email.",
@@ -128,51 +84,41 @@ function Login({ show, handleClose, openRegisterModal }) {
         "auth/invalid-credential": "Invalid credentials. Please try again.",
         "auth/invalid-password": "Invalid password. Please try again.",
       };
-  
+
       const errorMessage =
-        firebaseErrorMap[error.code] || "An unexpected error occurred. Please try again.";
-  
+        firebaseErrorMap[error.code] ||
+        "An unexpected error occurred. Please try again.";
+
       setServerError(errorMessage); // Display user-friendly error
     } finally {
-      setLoading(false); // Stop loading after login attempt
+      // setLoading(false); 
     }
   };
-  
 
   const handleClick = (provider) => {
-    setLoading(true); // Set loading to true for OAuth login
+    // setLoading(true); 
     signInWithPopup(auth, provider)
       .then(async (data) => {
         const idToken = await data.user.stsTokenManager.accessToken;
 
-        const response = await axios.post(
-          `${process.env.REACT_APP_API_URL}/login`,
-          { idToken },
-          {
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        );
 
-        if (response.status === 200) {
-          _setAuth(true);
-          handleClose();
-          if (!response.data.profile_completed) {
-            navigate("/seeBoard");
-          } else {
-            navigate("/seeBoard");
-          }
-          localStorage.setItem("jwt", response.data.token);
-        } else {
+      const payload = { idToken };
+      const response = await create(payload);
+
+
+      if (response.status_code === 201) {
+        _setAuth(true);
+        handleClose();
+        navigate("/seeBoard");
+        localStorage.setItem("jwt", response.token);
+      }  else {
           _setAuth(false);
         }
       })
       .catch((error) => {
-        console.log(error.message);
       })
       .finally(() => {
-        setLoading(false); // Set loading to false after OAuth login completes
+        // setLoading(false); 
       });
   };
 
@@ -192,38 +138,41 @@ function Login({ show, handleClose, openRegisterModal }) {
               </p>
             </div>
             <form onSubmit={handleLogin}>
-            <div className="form-group">
-  <label htmlFor="email">Email</label>
-  <input
-    type="email"
-    name="email"
-    id="email"
-    placeholder="Email"
-    value={email}
-    onChange={handleChange}
-    disabled={loading}
-  />
-  {formErrors.email && <span className="error-text">{formErrors.email}</span>}
-</div>
+              <div className="form-group">
+                <label htmlFor="email">Email</label>
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  placeholder="Email"
+                  value={email}
+                  onChange={handleChange}
+                  disabled={loading}
+                />
+                {formErrors.email && (
+                  <span className="error-text">{formErrors.email}</span>
+                )}
+              </div>
 
-<div className="form-group">
-  <label htmlFor="password">Password</label>
-  <div className="password-input-wrapper">
-    <input
-      type={passwordVisible ? "text" : "password"}
-      name="password"
-      id="password"
-      placeholder="Password"
-      value={password}
-      onChange={handleChange}
-    />
-    <div className="eye-icon" onClick={togglePasswordVisibility}>
-      {passwordVisible ? <FaEyeSlash /> : <FaEye />}
-    </div>
-  </div>
-  {formErrors.password && <span className="error-text">{formErrors.password}</span>}
-</div>
-
+              <div className="form-group">
+                <label htmlFor="password">Password</label>
+                <div className="password-input-wrapper">
+                  <input
+                    type={passwordVisible ? "text" : "password"}
+                    name="password"
+                    id="password"
+                    placeholder="Password"
+                    value={password}
+                    onChange={handleChange}
+                  />
+                  <div className="eye-icon" onClick={togglePasswordVisibility}>
+                    {passwordVisible ? <FaEyeSlash /> : <FaEye />}
+                  </div>
+                </div>
+                {formErrors.password && (
+                  <span className="error-text">{formErrors.password}</span>
+                )}
+              </div>
 
               {serverError && <p className="error-text"> {serverError}</p>}
 

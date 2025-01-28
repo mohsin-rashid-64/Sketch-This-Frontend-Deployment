@@ -1,22 +1,21 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Navbar from '../navbar/Navbar';
 import Footer from '../footer/Footer';
 import { useNavigate } from 'react-router-dom';
 import './EditProfile.scss';
-// import AOS from 'aos';
-
+import AOS from 'aos';
 function EditProfile() {
     const [formData, setFormData] = useState({
-        firstName: '',
-        lastName: '',
-        userName: '',
+        first_name: '',
+        last_name: '',
+        user_name: '',
         image: ''
     });
 
     let navigate = useNavigate();
 
     useEffect(() => {
-        // AOS.init();
+        AOS.init();
     }, []);
 
     const handleInputChange = (e) => {
@@ -47,14 +46,15 @@ function EditProfile() {
         }
     };
 
+    
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        localStorage.setItem('editProfileData', JSON.stringify(formData));
-        navigate('/account-management');
+        navigate('/account-management', { state: { formData } });
     };
 
     return (
-        <React.Fragment>
+        <>
             <Navbar />
             <div className="editProfile">
                 <div className="container">
@@ -83,36 +83,36 @@ function EditProfile() {
                                 <div className="row">
                                     <div data-aos="fade-down" data-aos-duration="1000" className="col-md-6">
                                         <div className="form-group">
-                                            <label htmlFor="firstName">First Name</label>
+                                            <label htmlFor="first_name">First Name</label>
                                             <input
                                                 type="text"
-                                                id="firstName"
+                                                id="first_name"
                                                 placeholder="John"
-                                                value={formData.firstName}
+                                                value={formData.first_name}
                                                 onChange={handleInputChange}
                                             />
                                         </div>
                                     </div>
                                     <div data-aos="fade-down" data-aos-duration="1000" className="col-md-6">
                                         <div className="form-group">
-                                            <label htmlFor="lastName">Last Name</label>
+                                            <label htmlFor="last_name">Last Name</label>
                                             <input
                                                 type="text"
-                                                id="lastName"
+                                                id="last_name"
                                                 placeholder="Doe"
-                                                value={formData.lastName}
+                                                value={formData.last_name}
                                                 onChange={handleInputChange}
                                             />
                                         </div>
                                     </div>
                                     <div data-aos="fade-down" data-aos-duration="1000" className="col-md-12">
                                         <div className="form-group">
-                                            <label htmlFor="userName">User Name</label>
+                                            <label htmlFor="user_name">User Name</label>
                                             <input
                                                 type="text"
-                                                id="userName"
+                                                id="user_name"
                                                 placeholder=""
-                                                value={formData.userName}
+                                                value={formData.user_name}
                                                 onChange={handleInputChange}
                                             />
                                         </div>
@@ -127,7 +127,7 @@ function EditProfile() {
                 </div>
             </div>
             <Footer />
-        </React.Fragment>
+        </>
     );
 }
 

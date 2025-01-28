@@ -1,4 +1,3 @@
-import React from 'react'
 import Navbar from '../navbar/Navbar'
 import Footer from '../footer/Footer'
 import MembershipCards from '../Blog/MembershipCards'
@@ -9,13 +8,13 @@ import Boards from './Boards'
 
 function Index() {
   return (
-    <React.Fragment>
+    <>
       <Navbar />
       <Banner />
       <Boards />
       <MembershipCards />
       <Footer />
-    </React.Fragment>
+    </>
   )
 }
 

@@ -1,14 +1,11 @@
-import React, { useState, useEffect, useContext } from "react";
-import { NavLink, useLocation, useNavigate } from "react-router-dom";
+import { useState, useEffect, useContext } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
 import { Navbar as BootstrapNavbar, Container, Nav } from "react-bootstrap";
 import "./Navbar.scss";
 import Dropdown from 'react-bootstrap/Dropdown';
 import Login from '../Login/Login';
 import Register from '../Login/Register';
 import { Link } from "react-router-dom";
-import Modal from "../ModelCart/Modal.js";
-import HelpCenterModal from "../../components/HelpCenterModal/HelpCenterModal"; // Import the HelpCenterModal component
-import axios from "axios";
 import AuthModalContainer from "../Login/AuthModalContainer.js";
 
 
@@ -19,11 +16,6 @@ const Navbar = () => {
     const [showLogin, setShowLogin] = useState(false);
     const [showRegister, setShowRegister] = useState(false);
     const [scrolling, setScrolling] = useState(false);
-    const [isModalOpen, setModalOpen] = useState(false);
-    const [isHelpCenterModalOpen, setHelpCenterModalOpen] = useState(false); // Help Center modal state
-    const [cartItems, setCartItems] = useState([]);
-    const [cartItemCount, setCartItemCount] = useState(0);
-    const location = useLocation();
     const navigate = useNavigate();
     const [isAuthenticated, setIsAuthenticated] = useState(false);
 
@@ -43,11 +35,10 @@ const Navbar = () => {
         };
     }, []);
 
-    const openHelpCenterModal = () => setHelpCenterModalOpen(true);
-    const closeHelpCenterModal = () => setHelpCenterModalOpen(false);
+   
 
     return (
-        <React.Fragment>
+        <>
             
             <BootstrapNavbar
                 className={`${scrolling ? "scrolling" : ""}`}
@@ -85,9 +76,10 @@ const Navbar = () => {
                                         <Link to="/edit-profile">Edit Profile</Link>
                                         <Link to="/seeBoard">My Boards</Link>
                                         <Link to="/account-management">Account Management</Link>
-                                        <Dropdown.Item onClick={openHelpCenterModal}>Help Center</Dropdown.Item> {/* Open Help Center modal */}
                                         <button type="button" onClick={() => {
                                             _setAuth(false);
+                                            
+
                                             navigate("/")
                                             localStorage.removeItem('jwt');
                                         }}>Sign out</button>
@@ -104,11 +96,10 @@ const Navbar = () => {
                     </BootstrapNavbar.Collapse>
                 </Container>
             </BootstrapNavbar>
-            <Modal isOpen={isModalOpen} onClose={() => setModalOpen(false)} cartItems={cartItems} setCartItems={setCartItems} />
-            <HelpCenterModal show={isHelpCenterModalOpen} handleClose={closeHelpCenterModal} /> {/* Help Center modal */}
+           
             <Login show={showLogin} handleClose={handleLoginModal} setIsAuthenticated={setIsAuthenticated} />
             <Register show={showRegister} handleClose={handleRegisterModal} />
-        </React.Fragment>
+        </>
     );
 };
 

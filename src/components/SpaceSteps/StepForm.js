@@ -27,9 +27,7 @@ function StepForm() {
     }
   };
 
-  const handleSubmit = () => {
-   console.log(selections);
-  };
+  
 
   return (
     <div className="StepBack">
@@ -84,7 +82,7 @@ function StepForm() {
               <span>Help</span>
             </div>
             {currentStep < 3 && <button className="next-button" onClick={nextStep}>Next Step <img src="/images/next.svg" alt="next" /></button>}
-            {currentStep === 3 && <button className="submit-button" onClick={handleSubmit}>Next Step <img src="/images/next.svg" alt="next" /></button>}
+            {currentStep === 3 && <button className="submit-button">Next Step <img src="/images/next.svg" alt="next" /></button>}
           </div>
         </div>
       </div>

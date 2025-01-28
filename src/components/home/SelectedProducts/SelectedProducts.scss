@@ -258,14 +258,18 @@
         border-radius: 100px;
         cursor: pointer;
         transition: background-color 0.4s;
-
-        &:hover {
-            background-color: #228b7d;
-        }
-
-        &:disabled {
-            background-color: #cccccc;
-            cursor: not-allowed;
-        }
+        display: block;
+        margin-left: auto; /* Pushes the button to the right */
+        margin-right: 0; /* Removes any default margin on the right */
     }
+    
+    .generate-btn:hover {
+        background-color: #228b7d;
+    }
+    
+    .generate-btn:disabled {
+        background-color: #cccccc;
+        cursor: not-allowed;
+    }
+    
 }
